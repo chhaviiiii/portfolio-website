@@ -4,6 +4,9 @@ import Navbar from "../components/Navbar";
 import TypeWriter from "../components/TypeWriter";
 import SplashScreen from "../components/SplashScreen";
 import ThemeToggle from "../components/ThemeToggle";
+import StackSection from "../components/StackSection";
+import RotatingTypewriter from "../components/RotatingTypewriter";
+import VerticalTextCarousel from "../components/VerticalTextCarousel";
 
 import { useState, useEffect, useRef } from "react";
 
@@ -163,7 +166,7 @@ export default function Home() {
               <TypeWriter
                 text="CHHAVI NAYYAR"
                 speed={150}
-                className="bg-gradient-to-r from-pink-400 via-purple-400 to-pink-600 bg-clip-text text-transparent hidden"
+                className="text-white text-transparent hidden"
               />
             </h1>
             <p className="text-lg sm:text-2xl max-w-2xl mb-8 text-black/80 dark:text-white/80">
@@ -175,7 +178,7 @@ export default function Home() {
             ref={aboutSectionRef}
             className="w-full flex justify-center mt-[240px]"
           >
-            <div className="max-w-10xl rounded-3xl p-1 text-white text-left">
+            <div className="max-w-15xl rounded-3xl p-1 text-white text-left">
               <h2
                 className="font-bold mb-10 text-white"
                 style={{
@@ -184,12 +187,20 @@ export default function Home() {
                   fontSize: 74,
                   lineHeight: "100%",
                   letterSpacing: 0,
-                  maxWidth: 1200,
+                  maxWidth: 1350,
                   marginLeft: 850,
                   marginTop: -60,
                 }}
               >
-                FULL-STACK DEVELOPER
+                <VerticalTextCarousel
+                  phrases={[
+                    "Fullstack Developer",
+                    "UX/ UI Designer",
+                    "ML Engineer",
+                    "Certified Yapper",
+                  ]}
+                  className="text-white bg-clip-text text-transparent"
+                />
               </h2>
               <h3
   className="text-3xl md:text-4xl font-bold text-white mb-4"
@@ -258,119 +269,7 @@ export default function Home() {
               </div>
             </div>
           </section>
-          <section className="w-full flex justify-center mt-44">
-            <div
-              ref={stackRef}
-              className={`w-full max-w-6xl  transition-all duration-1000
-                ${stackInView ? "opacity-80 scale-100" : "opacity100 scale-90"}
-              `}
-            >
-              <div className="space-y-16">
-                {/* Frontend */}
-                <div className="flex flex-col items-center">
-                  <span className="text-5xl font-extrabold text-gray-100 mb-6">Frontend</span>
-                  <div className="flex flex-wrap justify-center gap-14">
-                    <span className="flex flex-col items-center gap-3 text-white">
-                      <span className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold text-3xl">JS</span>
-                      <span className="text-3xl mt-2">React</span>
-                    </span>
-                    <span className="flex flex-col items-center gap-3 text-white">
-                      <img src="/nextjs-icon.svg" alt="Next.js" className="w-16 h-16 inline-block bg-white rounded-full p-2" />
-                      <span className="text-3xl mt-2">Next.js</span>
-                    </span>
-                    <span className="flex flex-col items-center gap-3 text-white">
-                      <span className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-3xl">TS</span>
-                      <span className="text-3xl mt-2">TypeScript</span>
-                    </span>
-                    <span className="flex flex-col items-center gap-3 text-white">
-                      <span className="w-16 h-16 bg-cyan-400 rounded-full flex items-center justify-center text-white font-bold text-3xl">TW</span>
-                      <span className="text-3xl mt-2">Tailwind CSS</span>
-                    </span>
-                  </div>
-                </div>
-                {/* Backend */}
-                <div className="flex flex-col items-center">
-                  <span className="text-5xl font-extrabold text-gray-100 mb-6">Backend</span>
-                  <div className="flex flex-wrap justify-center gap-14">
-                    <span className="flex flex-col items-center gap-3 text-white">
-                      <span className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-3xl">N</span>
-                      <span className="text-3xl mt-2">Node.js</span>
-                    </span>
-                    <span className="flex flex-col items-center gap-3 text-white">
-                      <span className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center text-black font-bold text-3xl">Ex</span>
-                      <span className="text-3xl mt-2">Express.js</span>
-                    </span>
-                    <span className="flex flex-col items-center gap-3 text-white">
-                      <span className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center text-black font-bold text-3xl">F</span>
-                      <span className="text-3xl mt-2">Firebase</span>
-                    </span>
-                  </div>
-                </div>
-                {/* Machine Learning */}
-                <div className="flex flex-col items-center">
-                  <span className="text-5xl font-extrabold text-gray-100 mb-6">Machine Learning</span>
-                  <div className="flex flex-wrap justify-center gap-14">
-                    <span className="flex flex-col items-center gap-3 text-white">
-                      <span className="w-16 h-16 bg-blue-400 rounded-full flex items-center justify-center text-white font-bold text-3xl">Py</span>
-                      <span className="text-3xl mt-2">Python</span>
-                    </span>
-                    <span className="flex flex-col items-center gap-3 text-white">
-                      <span className="w-16 h-16 bg-orange-400 rounded-full flex items-center justify-center text-white font-bold text-3xl">TF</span>
-                      <span className="text-3xl mt-2">TensorFlow</span>
-                    </span>
-                    <span className="flex flex-col items-center gap-3 text-white">
-                      <span className="w-16 h-16 bg-green-400 rounded-full flex items-center justify-center text-white font-bold text-3xl">Sk</span>
-                      <span className="text-3xl mt-2">scikit-learn</span>
-                    </span>
-                  </div>
-                </div>
-                {/* Design */}
-                <div className="flex flex-col items-center">
-                  <span className="text-5xl font-extrabold text-gray-100 mb-6">Design</span>
-                  <div className="flex flex-wrap justify-center gap-14">
-                    <span className="flex flex-col items-center gap-3 text-white">
-                      <span className="w-16 h-16 bg-pink-400 rounded-full flex items-center justify-center text-white font-bold text-3xl">F</span>
-                      <span className="text-3xl mt-2">Figma</span>
-                    </span>
-                    <span className="flex flex-col items-center gap-3 text-white">
-                      <span className="w-16 h-16 bg-purple-400 rounded-full flex items-center justify-center text-white font-bold text-3xl">XD</span>
-                      <span className="text-3xl mt-2">Adobe XD</span>
-                    </span>
-                    <span className="flex flex-col items-center gap-3 text-white">
-                      <span className="w-16 h-16 bg-gray-400 rounded-full flex items-center justify-center text-black font-bold text-3xl">A</span>
-                      <span className="text-3xl mt-2">Accessibility (WCAG 2.1)</span>
-                    </span>
-                  </div>
-                </div>
-                {/* Tools */}
-                <div className="flex flex-col items-center">
-                  <span className="text-5xl font-extrabold text-gray-100 mb-6">Tools</span>
-                  <div className="flex flex-wrap justify-center gap-14">
-                    <span className="flex flex-col items-center gap-3 text-white">
-                      <span className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center text-white font-bold text-3xl">G</span>
-                      <span className="text-3xl mt-2">Git</span>
-                    </span>
-                    <span className="flex flex-col items-center gap-3 text-white">
-                      <span className="w-16 h-16 bg-gray-900 rounded-full flex items-center justify-center text-white font-bold text-3xl">GH</span>
-                      <span className="text-3xl mt-2">GitHub</span>
-                    </span>
-                    <span className="flex flex-col items-center gap-3 text-white">
-                      <span className="w-16 h-16 bg-blue-300 rounded-full flex items-center justify-center text-white font-bold text-3xl">D</span>
-                      <span className="text-3xl mt-2">Docker (basic)</span>
-                    </span>
-                    <span className="flex flex-col items-center gap-3 text-white">
-                      <span className="w-16 h-16 bg-indigo-400 rounded-full flex items-center justify-center text-white font-bold text-3xl">VS</span>
-                      <span className="text-3xl mt-2">VS Code</span>
-                    </span>
-                    <span className="flex flex-col items-center gap-3 text-white">
-                      <span className="w-16 h-16 bg-green-300 rounded-full flex items-center justify-center text-white font-bold text-3xl">CI</span>
-                      <span className="text-3xl mt-2">CI/CD</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          <StackSection />
         </div>
       </div>
     </>

@@ -93,23 +93,23 @@ const StackSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="w-full flex justify-center mt-82">
+    <section className="w-full flex justify-center mt-62">
       <div className="w-full max-w-15xl flex flex-col px-50">
-        <h2 className="text-7xl md:text-8xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent mb-10 text-left  md:pl-1">
+        <h2 className="text-7xl min-h-30 md:text-8xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent mb-10 text-left  md:pl-1">
           My Stack
         </h2>
         <div
           ref={stackRef}
-          className={`mt-34 transition-all duration-1000
+          className={`mt-8 transition-all duration-1000
             ${stackInView ? "opacity-100 scale-100" : "opacity-100 scale-90"}
           `}
         >
           {stackData.map((cat, idx) => (
             <div
               key={cat.category}
-              ref={el => (rowRefs.current[idx] = el)}
-              className={`grid grid-cols-1 md:grid-cols-[minmax(600px,auto)_1fr] items-center w-full transition-all duration-1000 mb-15 mr-60
-                ${rowsInView[idx] ? "opacity-100 scale-100" : "opacity-100 scale-90"}
+              ref={el => { rowRefs.current[idx] = el; }}
+              className={`grid grid-cols-1 md:grid-cols-[minmax(600px,auto)_1fr] items-center w-full transition-all duration-1000 mb-10 mr-60
+                ${rowsInView[idx] ? "opacity-100 scale-100" : "opacity-0 scale-90"}
               `}
             >
               {/* Category Name */}

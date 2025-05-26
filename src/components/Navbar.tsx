@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <nav
       style={{
-        borderRadius: 80,
+        borderRadius: 30,
         border: "1px solid #A92EA3",
         opacity: 1,
         background:

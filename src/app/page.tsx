@@ -7,6 +7,7 @@ import ThemeToggle from "../components/ThemeToggle";
 import StackSection from "../components/StackSection";
 import RotatingTypewriter from "../components/RotatingTypewriter";
 import VerticalTextCarousel from "../components/VerticalTextCarousel";
+import ProjectCarousel from "../components/ProjectCarousel";
 
 import { useState, useEffect, useRef } from "react";
 
@@ -174,7 +175,6 @@ export default function Home() {
             </p>
           </main>
           <section
-            id="about"
             ref={aboutSectionRef}
             className="w-full flex justify-center mt-[240px]"
           >
@@ -232,18 +232,20 @@ export default function Home() {
                 href="https://www.linkedin.com/in/cnayyar/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-2 ml-[850px] px-8 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-lg shadow-lg hover:scale-120 transition-transform"
+                className="inline-block mt-2 ml-[850px] px-13 py-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-lg shadow-lg hover:scale-110 transition-transform flex items-center gap-3"
               >
-                Let's Connect
+              
+                <span>Let's Connect!</span>
               </a>
              
             </div>
           </section>
-          <section className="w-full flex justify-center mt-140">
+         
+          <section id="about" className="w-full flex justify-center mt-140">
             <div className="w-full max-w-20xl flex flex-col md:flex-row items-center md:items-start gap-1 px-50">
             
-              <div className="flex-1">
-                <h2 className="text-4xl md:text-8xl font-bold bg-gradient-to-r from-white to-pink-500  bg-clip-text text-transparent mb-8 text-left">
+              <div  className="flex-1">
+                <h2 className="text-4xl md:text-8xl font-bold bg-gradient-to-r from-white to-pink-500  bg-clip-text text-transparent mb-25 text-left">
                   About Me
                 </h2>
                 <ul className="text-4xl md:text-2xl text-white/100 mb-20 space-y-4 font-sans text-left" style={{ fontFamily: "Inter, sans-serif" }}>
@@ -270,6 +272,12 @@ export default function Home() {
             </div>
           </section>
           <StackSection />
+          <section id="projects" className="w-full flex justify-center mt-140">
+            <div className="w-full max-w-20xl flex flex-col md:flex-row items-center md:items-start gap-1 px-50">
+              {/* Projects content */}
+            </div>
+          </section>
+          <ProjectCarousel />
         </div>
       </div>
     </>

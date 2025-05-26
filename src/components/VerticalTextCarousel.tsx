@@ -8,46 +8,50 @@ interface VerticalTextCarouselProps {
   style?: React.CSSProperties;
 }
 
-const ANIMATION_DURATION = 2000; // ms
-
 const VerticalTextCarousel: React.FC<VerticalTextCarouselProps> = ({
   phrases,
-  duration = 1000,
+  duration = 2000,
   className = "",
   style = {},
 }) => {
   const [index, setIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    timeoutRef.current = setTimeout(() => {
-      setIsAnimating(true);
-      setTimeout(() => {
-        setIsAnimating(false);
-        setIndex((prev) => (prev + 1) % phrases.length);
-      }, ANIMATION_DURATION);
+    const timeout = setTimeout(() => {
+      setIndex((prev) => (prev + 1) % phrases.length);
     }, duration);
-
-    return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
+    return () => clearTimeout(timeout);
   }, [index, duration, phrases.length]);
 
   return (
-    <div className="relative h-[1.1em] overflow-hidden" style={style}>
+    <div
+      className={`relative overflow-hidden h-[80px] flex items-center justify-start ${className}`}
+      style={{ perspective: 600, ...style, minWidth: 520 }}
+    >
       <div
-        className={`will-change-transform transition-transform duration-[${ANIMATION_DURATION}ms] ease-in-out`}
+        className="w-full h-[80px] flex items-center justify-start"
         style={{
-          transform: isAnimating ? "translateY(0%)" : "translateY(-150%)",
+          transformStyle: "preserve-3d",
+          transition: "transform 0.7s cubic-bezier(0.77,0,0.175,1)",
+          transform: `rotateX(-${index * 90}deg)`,
         }}
       >
-        <div className={`w-full ${className}`}>
-          {phrases[index]}
-        </div>
-        <div className={`w-full ${className}`}>
-          {phrases[(index + 1) % phrases.length]}
-        </div>
+        {phrases.map((phrase, i) => (
+          <div
+            key={i}
+            className="absolute w-full h-[90px] flex items-center justify-start left-6.5 top-0"
+            style={{
+              transform: `rotateX(${i * 90}deg) translateZ(40px)`,
+              fontSize: 74,
+              fontWeight: 700,
+              lineHeight: "100%",
+              letterSpacing: 0,
+              backfaceVisibility: "hidden",
+            }}
+          >
+            {phrase}
+          </div>
+        ))}
       </div>
     </div>
   );

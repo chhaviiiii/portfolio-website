@@ -213,7 +213,7 @@ export default function Home() {
     marginTop: 0,
   }}
 >
-  Hi, I'm{" "}
+  Hi, I&apos;m{" "}
   <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
     Chhavi 
   </span>
@@ -237,7 +237,7 @@ export default function Home() {
                 className="inline-block mt-2 ml-[850px] px-13 py-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-lg shadow-lg hover:scale-110 transition-transform flex items-center gap-3"
               >
               
-                <span>Let's Connect!</span>
+                <span>Let&apos;s Connect!</span>
               </a>
              
             </div>

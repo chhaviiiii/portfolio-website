@@ -15,8 +15,8 @@ const stackData = [
     category: "Backend",
     skills: [
       { name: "Node.js", icon: "/node-js.png" },
-      { name: "Express.js", icon: "" },
-      { name: "Firebase", icon: "" },
+      { name: "Express.js", icon: "/express-js.png" },
+      { name: "Firebase", icon: "/firebase.png" },
       { name: "C++", icon: "/c++.png" },
       { name: "Java", icon: "/java.jpg" },
     ],
@@ -34,17 +34,17 @@ const stackData = [
     skills: [
       { name: "Figma", icon: "/figma.png" },
       { name: "Adobe XD", icon: "/adobe.png" },
-      { name: "WCAG 2.1", icon: "" },
+      { name: "WCAG 2.1", icon: "/wcag.png" },
     ],
   },
   {
     category: "Tools",
     skills: [
-      { name: "Git", icon: "" },
+      { name: "Git", icon: "/git.png" },
       { name: "GitHub", icon: "/github.png" },
-      { name: "Docker", icon: "" },
+      { name: "Docker", icon: "/docker.png" },
       { name: "VS Code", icon: "/vs.png" },
-      { name: "CI/CD", icon: "" },
+      { name: "CI/CD", icon: "/ci:cd.png" },
     ],
   },
 ];

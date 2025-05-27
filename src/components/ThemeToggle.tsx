@@ -20,9 +20,9 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ onClick, isLight }) => (
       border: "none",
       cursor: "pointer",
       boxShadow: isLight ? "0 0 0 2px #2222" : "0 0 0 2px #fff2",
-      transition: "box-shadow 0.2s"
+      transition: "all 0.3s ease-in-out"
     }}
-    className="fixed top-6 right-6 z-50"
+    className="fixed bottom-8 right-8 z-50 hover:scale-110 hover:shadow-lg"
   />
 );
 

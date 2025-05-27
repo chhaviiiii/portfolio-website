@@ -18,14 +18,14 @@ const VerticalTextCarousel: React.FC<VerticalTextCarouselProps> = ({
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setIndex((prev) => (prev + 1) % phrases.length);
+      setIndex((prev) => (prev + 1)) ;
     }, duration);
     return () => clearTimeout(timeout);
-  }, [index, duration, phrases.length]);
+  }, [index, duration]);
 
   return (
     <div
-      className={`relative overflow-hidden h-[80px] flex items-center justify-start ${className}`}
+      className={`relative overflow-hidden h-[90px] flex items-center justify-start ${className}`}
       style={{ perspective: 600, ...style, minWidth: 520 }}
     >
       <div

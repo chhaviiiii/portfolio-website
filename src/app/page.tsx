@@ -5,9 +5,12 @@ import TypeWriter from "../components/TypeWriter";
 import SplashScreen from "../components/SplashScreen";
 import ThemeToggle from "../components/ThemeToggle";
 import StackSection from "../components/StackSection";
-import RotatingTypewriter from "../components/RotatingTypewriter";
 import VerticalTextCarousel from "../components/VerticalTextCarousel";
 import ProjectCarousel from "../components/ProjectCarousel";
+import ExperienceSection from "../components/ExperienceSection";
+import Footer from "@/components/Footer";
+import StarsBackground from "@/components/StarsBackground";
+import CustomCursor from "@/components/CustomCursor";
 
 import { useState, useEffect, useRef } from "react";
 
@@ -114,11 +117,13 @@ export default function Home() {
           isLight
             ? "bg-white text-black"
             : "bg-black text-white"
-        } ${showSplash ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+        } ${showSplash ? "opacity-0 pointer-events-none" : "opacity-100 cursor-none"}`}
         style={{
           overflow: "hidden",
         }}
       >
+        <CustomCursor />
+        <StarsBackground />
         {/* Decorative circles with animation */}
         {!isLight && (
           <>
@@ -160,7 +165,7 @@ export default function Home() {
             />
           </>
         )}
-        <div className="relative z-10">
+        <div id="home" className= "relative z-10">
           <Navbar />
           <main className="flex-1 flex flex-col items-center justify-center text-center px-4">
             <h1 className="text-5xl sm:text-7xl font-bold mb-6">
@@ -174,7 +179,7 @@ export default function Home() {
 
             </p>
           </main>
-          <section
+          <section 
             ref={aboutSectionRef}
             className="w-full flex justify-center mt-[240px]"
           >
@@ -239,10 +244,11 @@ export default function Home() {
               </a>
              
             </div>
+            
           </section>
          
-          <section id="about" className="w-full flex justify-center mt-140">
-            <div className="w-full max-w-20xl flex flex-col md:flex-row items-center md:items-start gap-1 px-50">
+          <section id="about" className="w-full flex justify-center mt-160">
+            <div className="w-full max-w-20xl flex flex-col md:flex-row items-center md:items-start gap-1 px-60">
             
               <div  className="flex-1">
                 <h2 className="text-4xl md:text-8xl font-bold bg-gradient-to-r from-white to-pink-500  bg-clip-text text-transparent mb-25 text-left">
@@ -271,15 +277,29 @@ export default function Home() {
               </div>
             </div>
           </section>
+          
           <StackSection />
-          <section id="projects" className="w-full flex justify-center mt-140">
-            <div className="w-full max-w-20xl flex flex-col md:flex-row items-center md:items-start gap-1 px-50">
+          <section id="projects" className="w-full flex justify-center mt-70">
               {/* Projects content */}
-            </div>
+              
           </section>
           <ProjectCarousel />
+          <a
+                href="https://github.com/chhaviiiii"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-20 ml-[1000px] px-13 py-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-lg shadow-lg hover:scale-110 transition-transform flex items-center gap-3"
+              >
+              
+                <span>More on Github</span>
+              </a>
+          <section id="experience" className="w-full flex justify-center mt-4">
+              {/* Exoerience content */}
+          </section>
+          <ExperienceSection />
         </div>
       </div>
+      <Footer />
     </>
   );
 }

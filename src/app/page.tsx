@@ -19,9 +19,6 @@ export default function Home() {
   const [isLight, setIsLight] = useState(false);
   const [showCircle1, setShowCircle1] = useState(false);
   const [showCircle2, setShowCircle2] = useState(false);
-  const [showCircles, setShowCircles] = useState(true);
-  const [shuffleStart, setShuffleStart] = useState(false);
-  const [showFullStack, setShowFullStack] = useState(false);
 
   const handleThemeToggle = () => setIsLight((prev) => !prev);
 
@@ -30,7 +27,6 @@ export default function Home() {
   const [imageInView, setImageInView] = useState(false);
 
   const stackRef = useRef<HTMLDivElement | null>(null);
-  const [stackInView, setStackInView] = useState(false);
 
   // Show circles in sequence after splash, hide both on scroll
   useEffect(() => {
@@ -66,7 +62,8 @@ export default function Home() {
     const observer = new window.IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setShuffleStart(false), 700);
+          // Removed setShuffleStart since it's not defined and doesn't appear to be needed
+          // for the about section intersection observer
         }
       },
       { threshold: 0.5 } // Adjust as needed

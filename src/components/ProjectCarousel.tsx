@@ -70,16 +70,9 @@ const projects = [
 
 const ProjectCarousel: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
-  const [scrollPosition, setScrollPosition] = useState(0);
   const firstFiveProjects = projects.slice(0, 3);
   const nextFiveProjects = projects.slice(4, 8);
 
-  const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    const container = e.currentTarget;
-    const scrollAmount = e.deltaY;
-    container.scrollLeft += scrollAmount;
-  };
 
   return (
     <>

@@ -276,7 +276,10 @@ export default function Home() {
             </div>
           </section>
           
-          <StackSection />
+          <section id="stack" className="w-full flex justify-center mt-70">
+            <StackSection />
+          </section>
+          
           <section id="projects" className="w-full flex justify-center mt-70">
               {/* Projects content */}
               

@@ -244,7 +244,7 @@ export default function Home() {
             className="w-full flex flex-col md:flex-row justify-center items-center md:items-start mt-52 md:mt-150 px-4 sm:px-8 md:px-20"
           >
             <div className="w-full md:w-1/2 flex-1 mb-8 md:mb-0">
-              <h2 className="text-2xl sm:text-4xl md:text-7xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent mb-6 text-left">
+              <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent mb-6 text-left">
                 About Me
               </h2>
               <ul className="text-base sm:text-lg md:text-2xl text-white/100 mb-8 md:mb-20 space-y-4 font-sans text-left" style={{ fontFamily: "Inter, sans-serif" }}>

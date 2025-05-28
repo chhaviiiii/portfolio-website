@@ -25,7 +25,7 @@ const VerticalTextCarousel: React.FC<VerticalTextCarouselProps> = ({
 
   return (
     <div
-      className={`relative overflow-hidden h-[90px] flex items-center justify-start w-full ${className} text-base sm:text-xl md:text-3xl lg:text-5xl xl:text-6xl text-left`}
+      className={`relative overflow-hidden h-[100px] flex items-center justify-start w-full ${className} text-base sm:text-xl md:text-3xl lg:text-5xl xl:text-6xl text-left`}
       style={{ perspective: 600, ...style }}
     >
       <div
@@ -39,7 +39,7 @@ const VerticalTextCarousel: React.FC<VerticalTextCarouselProps> = ({
         {phrases.map((phrase, i) => (
           <div
             key={i}
-            className="absolute w-full h-[90px] flex items-center justify-start left-50 top-0 font-bold text-base sm:text-xl md:text-3xl lg:text-5xl xl:text-6xl text-center"
+            className="absolute w-full h-[100px] flex items-center justify-start left-5 top-0 font-bold text-base sm:text-xl md:text-3xl lg:text-5xl xl:text-6xl text-left"
             style={{
               transform: `rotateX(${i * 90}deg) translateZ(40px)`,
               lineHeight: "100%",

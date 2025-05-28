@@ -9,8 +9,8 @@ import ProjectCarousel from "../components/ProjectCarousel";
 import ExperienceSection from "../components/ExperienceSection";
 import Footer from "@/components/Footer";
 import StarsBackground from "@/components/StarsBackground";
-import CustomCursor from "@/components/CustomCursor";
 import CDPlayer from "../components/CDPlayer";
+import Head from "next/head";
 
 import { useState, useEffect, useRef } from "react";
 
@@ -100,6 +100,10 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Chhavi Nayyar | Portfolio</title>
+      </Head>
       {showSplash && (
         <SplashScreen
           onFinish={() => {
@@ -110,12 +114,11 @@ export default function Home() {
       )}
       <div
         className={`relative min-h-screen flex flex-col transition-colors duration-700 ${
-        showSplash ? "opacity-0 pointer-events-none" : "opacity-100 cursor-none"}`}
+        showSplash ? "opacity-0 pointer-events-none" : "opacity-100"}`}
         style={{
           overflow: "hidden",
         }}
       >
-        <CustomCursor />
         <StarsBackground />
         {/* Decorative circles with animation */}
 
@@ -184,11 +187,11 @@ export default function Home() {
           </main>
           <section 
             ref={aboutSectionRef}
-            className="w-full flex justify-center lg:justify-end mt-32 px-4 sm:px-8 md:px-20"
+            className="w-full flex justify-center lg:justify-end mt-62 px-4 sm:px-8 md:px-20"
           >
-            <div className="max-w-3xl w-full rounded-3xl p-1 text-white text-center lg:text-right">
+            <div className="max-w-3xl w-full rounded-3xl p-1 text-white text-center lg:text-left ml-1 mr-5">
               <h2
-                className="font-bold mb-6 text-white text-sm sm:text-lg md:text-2xl min-h-[100px] sm:min-h-[120px] md:min-h-[150px]"
+                className="font-bold mb-6 text-white text-sm sm:text-lg md:text-2xl mr-40 min-h-[100px] sm:min-h-[120px] md:min-h-[150px]"
                 style={{
                   fontFamily: "Inter, sans-serif",
                   lineHeight: "100%",
@@ -196,15 +199,17 @@ export default function Home() {
                   marginTop: -30,
                 }}
               >
-                <VerticalTextCarousel
-                  phrases={[
-                    "Fullstack Developer",
-                    "UX/ UI Designer",
-                    "ML Engineer",
-                    "Certified Yapper",
-                  ]}
-                  className="text-white bg-clip-text text-transparent"
-                />
+                <div className="ml-0 sm:ml-0 w-full">
+                  <VerticalTextCarousel
+                    phrases={[
+                      "Fullstack Developer",
+                      "UX/ UI Designer",
+                      "ML Engineer",
+                      "Certified Yapper",
+                    ]}
+                    className="text-white bg-clip-text text-transparent"
+                  />
+                </div>
               </h2>
               <h3
                 className="text-xl sm:text-4xl md:text-4xl font-bold text-white mb-4"

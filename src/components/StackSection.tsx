@@ -95,7 +95,7 @@ const StackSection: React.FC = () => {
   return (
     <section className="w-full flex justify-center mt-12 md:mt-32">
       <div className="w-full max-w-7xl flex flex-col px-4 sm:px-8 md:px-20">
-        <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent mb-6 md:mb-10 text-left pl-4 sm:pl-8 md:pl-20">
+        <h2 className="text-2xl sm:text-4xl md:text-7xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent mb-6 text-left pl-4 sm:pl-8 md:pl-20">
           My Stack
         </h2>
         <div

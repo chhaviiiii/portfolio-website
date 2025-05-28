@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 const projects = [
   {
@@ -70,9 +70,10 @@ const projects = [
 
 const ProjectCarousel: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
+  const [hoveringFirst, setHoveringFirst] = useState(false);
+  const [hoveringSecond, setHoveringSecond] = useState(false);
   const firstFiveProjects = projects.slice(0, 3);
   const nextFiveProjects = projects.slice(4, 8);
-
 
   return (
     <>
@@ -135,7 +136,9 @@ const ProjectCarousel: React.FC = () => {
         </h2>
         <div
           ref={carouselRef}
-          className="flex overflow-hidden gap-6 sm:gap-10 md:gap-20 px-2 sm:px-6 md:px-12 hide-scrollbar"
+          className={`flex ${hoveringFirst ? "overflow-x-auto" : "overflow-x-hidden"} gap-6 sm:gap-10 md:gap-20 px-2 sm:px-6 md:px-12 hide-scrollbar`}
+          onMouseEnter={() => setHoveringFirst(true)}
+          onMouseLeave={() => setHoveringFirst(false)}
         >
           <div className="carousel-container scroll-left">
             {firstFiveProjects.map((project, idx) => (
@@ -206,7 +209,11 @@ const ProjectCarousel: React.FC = () => {
         </div>
       </section>
       <section className="w-full py-8">
-        <div className="flex overflow-hidden gap-6 sm:gap-10 md:gap-20 px-2 sm:px-6 md:px-12 hide-scrollbar">
+        <div
+          className={`flex ${hoveringSecond ? "overflow-x-auto" : "overflow-x-hidden"} gap-6 sm:gap-10 md:gap-20 px-2 sm:px-6 md:px-12 hide-scrollbar`}
+          onMouseEnter={() => setHoveringSecond(true)}
+          onMouseLeave={() => setHoveringSecond(false)}
+        >
           <div className="carousel-container scroll-right">
             {nextFiveProjects.map((project, idx) => (
               <a

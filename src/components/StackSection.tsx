@@ -113,7 +113,7 @@ const StackSection: React.FC = () => {
               `}
             >
               {/* Category Name */}
-              <span className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent min-w-[200px] text-left pl-4 md:pl-1">
+              <span className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent min-w-[200px] text-left pl-4 md:pl-1 mb-10 md:mb-10">
                 {cat.category}
               </span>
               {/* Skills */}

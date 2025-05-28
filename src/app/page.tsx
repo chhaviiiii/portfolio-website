@@ -3,7 +3,6 @@
 import Navbar from "../components/Navbar";
 import TypeWriter from "../components/TypeWriter";
 import SplashScreen from "../components/SplashScreen";
-import ThemeToggle from "../components/ThemeToggle";
 import StackSection from "../components/StackSection";
 import VerticalTextCarousel from "../components/VerticalTextCarousel";
 import ProjectCarousel from "../components/ProjectCarousel";
@@ -11,6 +10,7 @@ import ExperienceSection from "../components/ExperienceSection";
 import Footer from "@/components/Footer";
 import StarsBackground from "@/components/StarsBackground";
 import CustomCursor from "@/components/CustomCursor";
+import CDPlayer from "../components/CDPlayer";
 
 import { useState, useEffect, useRef } from "react";
 
@@ -101,7 +101,6 @@ export default function Home() {
 
   return (
     <>
-      <ThemeToggle onClick={handleThemeToggle} isLight={isLight} />
       {showSplash && (
         <SplashScreen
           onFinish={() => {
@@ -112,10 +111,7 @@ export default function Home() {
       )}
       <div
         className={`relative min-h-screen flex flex-col transition-colors duration-700 ${
-          isLight
-            ? "bg-white text-black"
-            : "bg-black text-white"
-        } ${showSplash ? "opacity-0 pointer-events-none" : "opacity-100 cursor-none"}`}
+        showSplash ? "opacity-0 pointer-events-none" : "opacity-100 cursor-none"}`}
         style={{
           overflow: "hidden",
         }}
@@ -131,8 +127,9 @@ export default function Home() {
                 w-40 sm:w-80 md:w-[500px]
                 h-40 sm:h-80 md:h-[500px]
                 top-40 sm:top-60 md:top-[420px]
-                left-1/2 md:left-[250px]
-                -translate-x-1/2 md:translate-x-0
+                left-2 md:left-[250px]
+                ${/* Only translate-x-0 on md and up */""}
+                md:translate-x-0
                 rounded-full
                 z-10
                 transition-all duration-1000
@@ -154,8 +151,9 @@ export default function Home() {
                 w-40 sm:w-80 md:w-[500px]
                 h-40 sm:h-80 md:h-[500px]
                 top-20 sm:top-40 md:top-[250px]
-                left-1/2 md:left-[380px]
-                -translate-x-1/2 md:translate-x-0
+                right-2 md:left-[380px]
+                ${/* Only translate-x-0 on md and up */""}
+                md:translate-x-0
                 rounded-full
                 z-10
                 transition-all duration-1000
@@ -176,7 +174,7 @@ export default function Home() {
         <div id="home" className= "relative z-10">
           <Navbar />
           <main className="flex-1 flex flex-col items-center justify-center text-center px-4">
-            <h1 className="text-5xl sm:text-7xl font-bold mb-6">
+            <h1 className="text-center w-full justify-center text-2xl sm:text-5xl md:text-7xl font-bold mb-6">
               <TypeWriter
                 text="CHHAVI NAYYAR"
                 speed={150}
@@ -193,7 +191,7 @@ export default function Home() {
           >
             <div className="max-w-3xl w-full rounded-3xl p-1 text-white text-center lg:text-right">
               <h2
-                className="font-bold mb-6 text-white text-3xl sm:text-5xl md:text-7xl"
+                className="font-bold mb-6 text-white text-sm sm:text-lg md:text-2xl min-h-[100px] sm:min-h-[120px] md:min-h-[150px]"
                 style={{
                   fontFamily: "Inter, sans-serif",
                   lineHeight: "100%",
@@ -212,7 +210,7 @@ export default function Home() {
                 />
               </h2>
               <h3
-                className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4"
+                className="text-xl sm:text-4xl md:text-4xl font-bold text-white mb-4"
                 style={{
                   fontFamily: "Inter, sans-serif",
                   fontWeight: 700,
@@ -226,7 +224,7 @@ export default function Home() {
                 <span> 🌙</span>
               </h3>
               <p
-                className="text-base sm:text-xl md:text-2xl text-white/90 mb-8 lg:mb-10 mx-auto lg:mx-0"
+                className="text-base sm:text-xl md:text-3xl text-white/90 mb-8 lg:mb-10 mx-auto lg:mx-0 "
                 style={{
                   fontFamily: "Inter, sans-serif",
                 }}
@@ -237,7 +235,7 @@ export default function Home() {
                 href="https://www.linkedin.com/in/cnayyar/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-2 px-6 sm:px-10 py-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-lg shadow-lg hover:scale-110 transition-transform flex items-center gap-3 ml-0 lg:ml-auto"
+                className="inline-block mt-20 px-6 sm:px-10 py-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-lg shadow-lg hover:scale-110 transition-transform flex items-center gap-3 ml-0 lg:ml-auto"
               >
                 <span>Let&apos;s Connect!</span>
               </a>
@@ -297,11 +295,12 @@ export default function Home() {
             </a>
           </div>
           <section id="experience" className="w-full flex justify-center mt-4">
-              {/* Exoerience content */}
+              {/* Experience content */}
           </section>
           <ExperienceSection />
         </div>
       </div>
+      <CDPlayer />
       <Footer />
     </>
   );

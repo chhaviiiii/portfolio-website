@@ -186,7 +186,7 @@ export default function Home() {
           >
             <div className="max-w-3xl w-full rounded-3xl p-1 text-white text-center lg:text-left ml-1 mr-5">
               <h2
-                className="font-bold mb-6 text-white text-sm sm:text-lg md:text-2xl min-h-[100px] sm:min-h-[120px] md:min-h-[150px]"
+                className="font-bold mb-6 text-white sm:text-lg md:text-2xl min-h-[100px] sm:min-h-[120px] md:min-h-[150px]"
                 style={{
                   fontFamily: "Inter, sans-serif",
                   lineHeight: "100%",

@@ -130,12 +130,12 @@ const ProjectCarousel: React.FC = () => {
         }
       `}</style>
       <section className="w-full py-2">
-        <h2 className="text-7xl min-h-40 md:text-8xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent mb-10 text-left md:pl-50">
+        <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent mb-6 sm:mb-10 text-left pl-4 sm:pl-8 md:pl-20">
           My Projects
         </h2>
         <div
           ref={carouselRef}
-          className="flex overflow-hidden gap-[600px] px-6 md:px-40 hide-scrollbar"
+          className="flex overflow-hidden gap-6 sm:gap-10 md:gap-20 px-2 sm:px-6 md:px-12 hide-scrollbar"
         >
           <div className="carousel-container scroll-left">
             {firstFiveProjects.map((project, idx) => (
@@ -144,25 +144,25 @@ const ProjectCarousel: React.FC = () => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-w-[600px] max-w-[600px] bg-gradient-to-br from-80% to-pink-500 bg-opacity-10 rounded-2xl shadow-lg p-6 flex flex-col items-center transition-transform hover:scale-105 cursor-pointer"
+                className="min-w-[90vw] sm:min-w-[400px] md:min-w-[600px] max-w-[90vw] sm:max-w-[400px] md:max-w-[600px] bg-gradient-to-br from-80% to-pink-500 bg-opacity-10 rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col items-center transition-transform hover:scale-105 cursor-pointer"
                 style={{ flex: "0 0 auto" }}
               >
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover rounded-2xl mb-8 bg-gray-200"
+                  className="w-full h-40 sm:h-48 object-cover rounded-2xl mb-6 sm:mb-8 bg-gray-200"
                 />
-                <h3 className="text-2xl font-bold text-white mb-5 text-center">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-5 text-center">
                   {project.title}
                 </h3>
-                <p className="text-white text-base mb-3 text-center">
+                <p className="text-white text-sm sm:text-base mb-2 sm:mb-3 text-center">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-5 justify-center mb-2">
+                <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-5 justify-center mb-2">
                   {project.tools.map((tool) => (
                     <span
                       key={tool}
-                      className="bg-black bg-opacity-30 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                      className="bg-black bg-opacity-30 text-white text-xs font-semibold px-2 sm:px-3 py-1 rounded-full"
                     >
                       {tool}
                     </span>
@@ -176,25 +176,25 @@ const ProjectCarousel: React.FC = () => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-w-[600px] max-w-[600px] bg-gradient-to-br from-80% to-pink-500 bg-opacity-10 rounded-2xl shadow-lg p-6 flex flex-col items-center transition-transform hover:scale-105 cursor-pointer"
+                className="min-w-[90vw] sm:min-w-[400px] md:min-w-[600px] max-w-[90vw] sm:max-w-[400px] md:max-w-[600px] bg-gradient-to-br from-80% to-pink-500 bg-opacity-10 rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col items-center transition-transform hover:scale-105 cursor-pointer"
                 style={{ flex: "0 0 auto" }}
               >
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover rounded-2xl mb-8 bg-gray-200"
+                  className="w-full h-40 sm:h-48 object-cover rounded-2xl mb-6 sm:mb-8 bg-gray-200"
                 />
-                <h3 className="text-2xl font-bold text-white mb-5 text-center">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-5 text-center">
                   {project.title}
                 </h3>
-                <p className="text-white text-base mb-3 text-center">
+                <p className="text-white text-sm sm:text-base mb-2 sm:mb-3 text-center">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-5 justify-center mb-2">
+                <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-5 justify-center mb-2">
                   {project.tools.map((tool) => (
                     <span
                       key={tool}
-                      className="bg-black bg-opacity-30 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                      className="bg-black bg-opacity-30 text-white text-xs font-semibold px-2 sm:px-3 py-1 rounded-full"
                     >
                       {tool}
                     </span>
@@ -206,7 +206,7 @@ const ProjectCarousel: React.FC = () => {
         </div>
       </section>
       <section className="w-full py-8">
-        <div className="flex overflow-hidden gap-[600px] px-6 md:px-40 hide-scrollbar">
+        <div className="flex overflow-hidden gap-6 sm:gap-10 md:gap-20 px-2 sm:px-6 md:px-12 hide-scrollbar">
           <div className="carousel-container scroll-right">
             {nextFiveProjects.map((project, idx) => (
               <a
@@ -214,25 +214,25 @@ const ProjectCarousel: React.FC = () => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-w-[600px] max-w-[600px] bg-gradient-to-br from-80% to-pink-500 bg-opacity-10 rounded-2xl shadow-lg p-6 flex flex-col items-center transition-transform hover:scale-105 cursor-pointer"
+                className="min-w-[90vw] sm:min-w-[400px] md:min-w-[600px] max-w-[90vw] sm:max-w-[400px] md:max-w-[600px] bg-gradient-to-br from-80% to-pink-500 bg-opacity-10 rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col items-center transition-transform hover:scale-105 cursor-pointer"
                 style={{ flex: "0 0 auto" }}
               >
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover rounded-2xl mb-8 bg-gray-200"
+                  className="w-full h-40 sm:h-48 object-cover rounded-2xl mb-6 sm:mb-8 bg-gray-200"
                 />
-                <h3 className="text-2xl font-bold text-white mb-5 text-center">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-5 text-center">
                   {project.title}
                 </h3>
-                <p className="text-white text-base mb-3 text-center">
+                <p className="text-white text-sm sm:text-base mb-2 sm:mb-3 text-center">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-5 justify-center mb-2">
+                <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-5 justify-center mb-2">
                   {project.tools.map((tool) => (
                     <span
                       key={tool}
-                      className="bg-black bg-opacity-30 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                      className="bg-black bg-opacity-30 text-white text-xs font-semibold px-2 sm:px-3 py-1 rounded-full"
                     >
                       {tool}
                     </span>
@@ -246,25 +246,25 @@ const ProjectCarousel: React.FC = () => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-w-[600px] max-w-[600px] bg-gradient-to-br from-80% to-pink-500 bg-opacity-10 rounded-2xl shadow-lg p-6 flex flex-col items-center transition-transform hover:scale-105 cursor-pointer"
+                className="min-w-[90vw] sm:min-w-[400px] md:min-w-[600px] max-w-[90vw] sm:max-w-[400px] md:max-w-[600px] bg-gradient-to-br from-80% to-pink-500 bg-opacity-10 rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col items-center transition-transform hover:scale-105 cursor-pointer"
                 style={{ flex: "0 0 auto" }}
               >
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover rounded-2xl mb-8 bg-gray-200"
+                  className="w-full h-40 sm:h-48 object-cover rounded-2xl mb-6 sm:mb-8 bg-gray-200"
                 />
-                <h3 className="text-2xl font-bold text-white mb-5 text-center">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-5 text-center">
                   {project.title}
                 </h3>
-                <p className="text-white text-base mb-3 text-center">
+                <p className="text-white text-sm sm:text-base mb-2 sm:mb-3 text-center">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-5 justify-center mb-2">
+                <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-5 justify-center mb-2">
                   {project.tools.map((tool) => (
                     <span
                       key={tool}
-                      className="bg-black bg-opacity-30 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                      className="bg-black bg-opacity-30 text-white text-xs font-semibold px-2 sm:px-3 py-1 rounded-full"
                     >
                       {tool}
                     </span>

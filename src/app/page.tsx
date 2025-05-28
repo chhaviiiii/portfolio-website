@@ -126,38 +126,48 @@ export default function Home() {
         {!isLight && (
           <>
             <div
+              className={`
+                absolute
+                w-40 sm:w-80 md:w-[500px]
+                h-40 sm:h-80 md:h-[500px]
+                top-40 sm:top-60 md:top-[420px]
+                left-1/2 md:left-[250px]
+                -translate-x-1/2 md:translate-x-0
+                rounded-full
+                z-10
+                transition-all duration-1000
+              `}
               style={{
-                position: "absolute",
-                width: 500,
-                height: 500,
-                top: 420,
-                left: 250,
-                borderRadius: 459,
                 background:
                   "radial-gradient(50% 50% at 50% 50%, rgba(211, 9, 137, 0.60) 37.27%, rgba(99, 10, 173, 0.60) 100%)",
                 boxShadow: "0px 4px 4px 0px #D30989",
-                zIndex: 1,
-                transition: "opacity 1.2s cubic-bezier(0.4,0,0.2,1), transform 1.2s cubic-bezier(0.4,0,0.2,1)",
                 opacity: showCircle1 ? 1 : 0,
-                transform: showCircle1 ? "scale(1)" : "scale(0.8)",
+                transform: showCircle1
+                  ? "scale(1)"
+                  : "scale(0.8)",
               }}
               aria-hidden
             />
             <div
+              className={`
+                absolute
+                w-40 sm:w-80 md:w-[500px]
+                h-40 sm:h-80 md:h-[500px]
+                top-20 sm:top-40 md:top-[250px]
+                left-1/2 md:left-[380px]
+                -translate-x-1/2 md:translate-x-0
+                rounded-full
+                z-10
+                transition-all duration-1000
+              `}
               style={{
-                position: "absolute",
-                width: 500,
-                height: 500,
-                top: 250,
-                left: 380,
-                borderRadius: 459,
                 background:
                   "radial-gradient(50% 50% at 50% 50%, rgba(99, 10, 173, 0.40) 34.62%, rgba(211, 9, 137, 0.40) 100%)",
                 boxShadow: "0px 4px 4px 0px #FFF",
-                zIndex: 1,
-                transition: "opacity 1.2s cubic-bezier(0.4,0,0.2,1), transform 1.2s cubic-bezier(0.4,0,0.2,1)",
                 opacity: showCircle2 ? 1 : 0,
-                transform: showCircle2 ? "scale(1)" : "scale(0.8)",
+                transform: showCircle2
+                  ? "scale(1)"
+                  : "scale(0.8)",
               }}
               aria-hidden
             />
@@ -179,20 +189,16 @@ export default function Home() {
           </main>
           <section 
             ref={aboutSectionRef}
-            className="w-full flex justify-center mt-[240px]"
+            className="w-full flex justify-center lg:justify-end mt-32 px-4 sm:px-8 md:px-20"
           >
-            <div className="max-w-15xl rounded-3xl p-1 text-white text-left">
+            <div className="max-w-3xl w-full rounded-3xl p-1 text-white text-center lg:text-right">
               <h2
-                className="font-bold mb-10 text-white"
+                className="font-bold mb-6 text-white text-3xl sm:text-5xl md:text-7xl"
                 style={{
                   fontFamily: "Inter, sans-serif",
-                  fontWeight: 700,
-                  fontSize: 74,
                   lineHeight: "100%",
                   letterSpacing: 0,
-                  maxWidth: 1350,
-                  marginLeft: 850,
-                  marginTop: -60,
+                  marginTop: -30,
                 }}
               >
                 <VerticalTextCarousel
@@ -206,79 +212,71 @@ export default function Home() {
                 />
               </h2>
               <h3
-  className="text-3xl md:text-4xl font-bold text-white mb-4"
-  style={{
-    fontFamily: "Inter, sans-serif",
-    fontWeight: 700,
-    marginLeft: 850,
-    marginTop: 0,
-  }}
->
-  Hi, I&apos;m{" "}
-  <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-    Chhavi 
-  </span>
-<span> 🌙</span>
-</h3>
-              <p
-                className="text-xl md:text-2xl text-white/90 mb-10"
+                className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4"
                 style={{
                   fontFamily: "Inter, sans-serif",
-                  maxWidth: 800,
-                  marginLeft: 850,
+                  fontWeight: 700,
+                  marginTop: 0,
+                }}
+              >
+                Hi, I&apos;m{" "}
+                <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+                  Chhavi
+                </span>
+                <span> 🌙</span>
+              </h3>
+              <p
+                className="text-base sm:text-xl md:text-2xl text-white/90 mb-8 lg:mb-10 mx-auto lg:mx-0"
+                style={{
+                  fontFamily: "Inter, sans-serif",
                 }}
               >
                 A creative full-stack developer and design-driven engineer passionate about building accessible, performant web experiences. I love combining clean code with thoughtful design to create interfaces that work beautifully for everyone.
               </p>
-              
               <a
                 href="https://www.linkedin.com/in/cnayyar/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-2 ml-[850px] px-13 py-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-lg shadow-lg hover:scale-110 transition-transform flex items-center gap-3"
+                className="inline-block mt-2 px-6 sm:px-10 py-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-lg shadow-lg hover:scale-110 transition-transform flex items-center gap-3 ml-0 lg:ml-auto"
               >
-              
                 <span>Let&apos;s Connect!</span>
               </a>
-             
             </div>
-            
           </section>
          
-          <section id="about" className="w-full flex justify-center mt-160">
-            <div className="w-full max-w-20xl flex flex-col md:flex-row items-center md:items-start gap-1 px-60">
-            
-              <div  className="flex-1">
-                <h2 className="text-4xl md:text-8xl font-bold bg-gradient-to-r from-white to-pink-500  bg-clip-text text-transparent mb-25 text-left">
-                  About Me
-                </h2>
-                <ul className="text-4xl md:text-2xl text-white/100 mb-20 space-y-4 font-sans text-left" style={{ fontFamily: "Inter, sans-serif" }}>
-                  <li>🎓 Fourth-year Cognitive Systems &amp; Design student at UBC</li>
-                  <li>💻 Fullstack developer with experience in React, Next.js, Node.js, and accessibility-first design</li>
-                  <li>🔍 Detail-oriented with experience in UI/UX, A/B testing, and cross-functional collaboration</li>
-                  <li>⚙️ Familiar with ML workflows, backend APIs, and building scalable systems</li>
-                  <li>🚀 Worked on AI-powered tools, accessibility widgets, and data-driven web apps</li>
-                  <li>🌱 Always learning, currently exploring MLOps and advanced system design</li>
-                </ul>
-              </div>
-              {/* Right: Image */}
-              <div className="flex-1 flex justify-center md:justify-end">
-                <img
-                  ref={imageRef}
-                  src="/self.png"
-                  alt="Chhavi Nayyar"
-                  className={`object-cover rounded-2xl shadow-lg border-4 border-pink-400 transition-all duration-1000
-                    ${imageInView ? "opacity-100 scale-100" : "opacity-0 scale-75"}
-                  `}
-                  style={{ maxWidth: 600, maxHeight: 700 }}
-                />
-              </div>
+          <section
+            id="about"
+            className="w-full flex flex-col md:flex-row justify-center items-center md:items-start mt-52 md:mt-150 px-4 sm:px-8 md:px-20"
+          >
+            <div className="w-full md:w-1/2 flex-1 mb-8 md:mb-0">
+              <h2 className="text-2xl sm:text-4xl md:text-7xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent mb-6 text-left">
+                About Me
+              </h2>
+              <ul className="text-base sm:text-lg md:text-2xl text-white/100 mb-8 md:mb-20 space-y-4 font-sans text-left" style={{ fontFamily: "Inter, sans-serif" }}>
+                <li>🎓 Fourth-year Cognitive Systems &amp; Design student at UBC</li>
+                <li>💻 Fullstack developer with experience in React, Next.js, Node.js, and accessibility-first design</li>
+                <li>🔍 Detail-oriented with experience in UI/UX, A/B testing, and cross-functional collaboration</li>
+                <li>⚙️ Familiar with ML workflows, backend APIs, and building scalable systems</li>
+                <li>🚀 Worked on AI-powered tools, accessibility widgets, and data-driven web apps</li>
+                <li>🌱 Always learning, currently exploring MLOps and advanced system design</li>
+              </ul>
+            </div>
+            {/* Right: Image */}
+            <div className="w-full md:w-1/2 flex justify-center md:justify-end">
+              <img
+                ref={imageRef}
+                src="/self.png"
+                alt="Chhavi Nayyar"
+                className={`object-cover rounded-2xl shadow-lg border-4 border-pink-400 transition-all duration-1000 w-full max-w-xs sm:max-w-md md:max-w-lg max-h-[40vh] ${
+                  imageInView ? "opacity-100 scale-100" : "opacity-0 scale-75"
+                }`}
+              />
             </div>
           </section>
           
           <section
             id="stack"
-            className={`transition-all duration-700 ${stackInView ? "opacity-100" : "opacity-100"}`}
+            className={`w-full flex  justify-center px-4 mt-12 transition-all duration-700 ${stackInView ? "opacity-100" : "opacity-100"}`}
           >
             <StackSection />
           </section>
@@ -288,15 +286,16 @@ export default function Home() {
               
           </section>
           <ProjectCarousel />
-          <a
-                href="https://github.com/chhaviiiii"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-20 ml-[1000px] px-13 py-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-lg shadow-lg hover:scale-110 transition-transform flex items-center gap-3"
-              >
-              
-                <span>More on Github</span>
-              </a>
+          <div className="w-full flex justify-center mt-10 sm:mt-20">
+            <a
+              href="https://github.com/chhaviiiii"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 sm:px-10 py-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-lg shadow-lg hover:scale-110 transition-transform flex items-center gap-3"
+            >
+              <span>More on Github</span>
+            </a>
+          </div>
           <section id="experience" className="w-full flex justify-center mt-4">
               {/* Exoerience content */}
           </section>

@@ -93,9 +93,9 @@ const StackSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="w-full flex justify-center mt-62">
-      <div className="w-full max-w-15xl flex flex-col px-50">
-        <h2 className="text-7xl min-h-30 md:text-8xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent mb-10 text-left  md:pl-1">
+    <section className="w-full flex justify-center mt-12 md:mt-32">
+      <div className="w-full max-w-7xl flex flex-col px-4 sm:px-8 md:px-20">
+        <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent mb-6 md:mb-10 text-left pl-4 sm:pl-8 md:pl-20">
           My Stack
         </h2>
         <div
@@ -108,24 +108,24 @@ const StackSection: React.FC = () => {
             <div
               key={cat.category}
               ref={el => { rowRefs.current[idx] = el; }}
-              className={`grid grid-cols-1 md:grid-cols-[minmax(600px,auto)_1fr] items-center w-full transition-all duration-1000 mb-10 mr-60
+              className={`grid grid-cols-1 md:grid-cols-[minmax(300px,auto)_1fr] items-center w-full transition-all duration-1000 mb-6 md:mb-10
                 ${rowsInView[idx] ? "opacity-100 scale-100" : "opacity-0 scale-90"}
               `}
             >
               {/* Category Name */}
-              <span className="text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent min-w-[200px] text-left pl-10 md:pl-1">
+              <span className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent min-w-[200px] text-left pl-4 md:pl-1">
                 {cat.category}
               </span>
               {/* Skills */}
-              <div className={`grid grid-cols-3 md:grid-cols-5 gap-x-16 gap-y-16 flex-1 place-items-center`}>
+              <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-8 gap-y-8 md:gap-x-16 md:gap-y-16 flex-1 place-items-center`}>
                 {cat.skills.map((skill) => (
-                  <span key={skill.name} className="flex flex-col items-center justify-center gap-6 text-white">
+                  <span key={skill.name} className="flex flex-col items-center justify-center gap-4 md:gap-6 text-white">
                     {skill.icon ? (
-                      <img src={skill.icon} alt={skill.name} className="w-16 h-16 rounded-2xl bg-white p-2" />
+                      <img src={skill.icon} alt={skill.name} className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white p-2" />
                     ) : (
                       iconFallback
                     )}
-                    <span className="text-2xl md:text-3xl font-bold text-center">{skill.name}</span>
+                    <span className="text-lg md:text-2xl font-bold text-center">{skill.name}</span>
                   </span>
                 ))}
               </div>

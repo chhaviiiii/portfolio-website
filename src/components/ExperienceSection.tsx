@@ -71,45 +71,45 @@ const ExperienceSection: React.FC = () => {
   };
 
   return (
-    <section className="w-full flex flex-col md:flex-row justify-center items-start gap-12 py-60">
+    <section className="w-full flex flex-col md:flex-row justify-center items-start gap-6 md:gap-12 py-8 sm:py-16 md:py-24">
       {/* Left: Heading and job titles */}
       <div className="w-full md:w-1/2 flex flex-col">
         <h2 
           ref={setRef('title')}
           data-section-id="title"
-          className={`text-7xl min-h-40 md:text-8xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent mb-10 text-left md:pl-50 transition-all duration-1000 ease-in-out transform ${
+          className={`text-3xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent mb-6 sm:mb-10 text-left pl-4 sm:pl-8 md:pl-20 transition-all duration-1000 ease-in-out transform ${
             visibleSections['title'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
           Experience
         </h2>
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4 sm:gap-6">
           {experiences.map((exp, idx) => (
             <div
               key={exp.title}
               ref={setRef(`job-${idx}`)}
               data-section-id={`job-${idx}`}
-              className={`p-8 min-h-40 rounded-2xl transition-all duration-1000 ease-in-out cursor-pointer transform ${
+              className={`p-4 sm:p-6 md:p-8 min-h-[80px] sm:min-h-[120px] rounded-2xl transition-all duration-1000 ease-in-out cursor-pointer transform ${
                 visibleSections[`job-${idx}`] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               onMouseEnter={() => setHoveredIdx(idx)}
               onMouseLeave={() => setHoveredIdx(null)}
             >
-              <div className={`text-6xl font-bold mb-3 transition-all duration-500 md:pl-40 ${
+              <div className={`text-2xl sm:text-4xl md:text-6xl font-bold mb-2 sm:mb-3 transition-all duration-500 pl-2 sm:pl-6 md:pl-10 ${
                 hoveredIdx === idx
                   ? "bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent"
                   : "text-white"
               }`}>
                 {exp.title}
               </div>
-              <div className={`text-xl font-semibold transition-all duration-500 md:pl-40 ${
+              <div className={`text-base sm:text-lg md:text-xl font-semibold transition-all duration-500 pl-2 sm:pl-6 md:pl-10 ${
                 hoveredIdx === idx
                   ? "bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent"
                   : "text-white/60"
               }`}>
                 {exp.place}
               </div>
-              <div className="text-lg text-white/40 md:pl-40 mt-1">{exp.date}</div>
+              <div className="text-sm sm:text-base md:text-lg text-white/40 pl-2 sm:pl-6 md:pl-10 mt-1">{exp.date}</div>
             </div>
           ))}
         </div>
@@ -118,13 +118,13 @@ const ExperienceSection: React.FC = () => {
       <div 
         ref={setRef('responsibilities')}
         data-section-id="responsibilities"
-        className={`w-full md:w-1/2 min-h-[1100px] flex items-center justify-left transition-all duration-1000 ease-in-out transform ${
+        className={`w-full md:w-1/2 min-h-[200px] sm:min-h-[400px] md:min-h-[600px] flex items-center justify-left transition-all duration-1000 ease-in-out transform ${
           visibleSections['responsibilities'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
         {hoveredIdx !== null && (
-          <div className="relative p-6 mt-45 mr-54 rounded-2xl bg-[#000000] animate-border-trace">
-            <p className="text-3xl text-white text-justify">
+          <div className="relative p-4 sm:p-6 mt-4 sm:mt-8 mr-0 sm:mr-8 rounded-2xl bg-[#000000] animate-border-trace">
+            <p className="text-base sm:text-xl md:text-3xl text-white text-justify">
               {experiences[hoveredIdx].responsibilities[0]}
             </p>
           </div>

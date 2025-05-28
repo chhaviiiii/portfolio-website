@@ -11,39 +11,47 @@ const navItems = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
     };
-
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024); // Tailwind's lg breakpoint
+    };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const handleMenuClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setIsMenuOpen(prev => !prev);
+    setIsMenuOpen((prev) => !prev);
   };
 
   return (
     <div className="relative">
       <nav
         style={{
-          borderRadius: isScrolled ? "50%" : 30,
+          borderRadius: isScrolled || isMobile ? "50%" : 30,
           border: "1px solid #A92EA3",
           opacity: 1,
           background:
             "linear-gradient(90deg, rgba(211, 9, 137, 0.50) 0%, rgba(148, 6, 199, 0.50) 100%)",
         }}
-        className={`fixed top-8 z-[100] transition-all duration-1000 ease-in-out ${
-          isScrolled 
-            ? "right-8 w-14 h-14" 
-            : "left-1/2 -translate-x-1/2 w-[1000px] max-w-[calc(100%-4rem)]"
-        } py-4 px-8 flex justify-center items-center`}
+        className={`fixed top-4 z-[100] transition-all duration-1000 ease-in-out
+          ${isScrolled || isMobile
+            ? "right-4 w-12 h-12 flex items-center justify-center px-0 py-0"
+            : "left-1/2 -translate-x-1/2 w-full max-w-[95vw] sm:max-w-2xl md:max-w-4xl lg:w-[1000px] py-4 px-2 sm:px-4 md:px-8 flex justify-center items-center"}
+        `}
       >
-        {isScrolled ? (
+        {(isScrolled || isMobile) ? (
           <button
             type="button"
             onClick={handleMenuClick}
@@ -65,7 +73,7 @@ const Navbar = () => {
             </div>
           </button>
         ) : (
-          <ul className="flex items-center gap-4">
+          <ul className="hidden lg:flex items-center gap-4 w-full justify-center">
             {navItems.map((item, idx) => (
               <React.Fragment key={item.label}>
                 <li>
@@ -103,17 +111,18 @@ const Navbar = () => {
         )}
       </nav>
 
-      {isScrolled && isMenuOpen && (
+      {(isScrolled || isMobile) && isMenuOpen && (
         <div
-          className="fixed top-28 right-8 z-[99] transition-all duration-500 ease-in-out"
+          className="fixed top-20 right-4 left-4 sm:left-auto z-[99] transition-all duration-500 ease-in-out"
           style={{
             borderRadius: 20,
             border: "1px solid #A92EA3",
             background:
               "linear-gradient(90deg, rgba(211, 9, 137, 0.50) 0%, rgba(148, 6, 199, 0.50) 100%)",
+            maxWidth: '90vw',
           }}
         >
-          <ul className="py-4 px-6 flex flex-col gap-4">
+          <ul className="py-4 px-4 sm:px-6 flex flex-col gap-4 w-full">
             {navItems.map((item) => (
               <li key={item.label}>
                 <a

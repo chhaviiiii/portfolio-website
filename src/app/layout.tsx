@@ -16,6 +16,7 @@ export default function RootLayout({
     <head>
       <title>Chhavi Nayyar | Portfolio</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="icon" href="/daisy.png" type="image/png" />
     </head>
     <body>{children}</body>
   </html>

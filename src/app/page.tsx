@@ -10,7 +10,6 @@ import ExperienceSection from "../components/ExperienceSection";
 import Footer from "@/components/Footer";
 import StarsBackground from "@/components/StarsBackground";
 import CDPlayer from "../components/CDPlayer";
-import Head from "next/head";
 
 import { useState, useEffect, useRef } from "react";
 

@@ -118,8 +118,7 @@ export default function Home() {
         <CustomCursor />
         <StarsBackground />
         {/* Decorative circles with animation */}
-        {!isLight && (
-          <>
+
             <div
               className={`
                 absolute
@@ -168,8 +167,7 @@ export default function Home() {
               }}
               aria-hidden
             />
-          </>
-        )}
+          
         <div id="home" className= "relative z-10">
           <Navbar />
           <main className="flex-1 flex flex-col items-center justify-center text-center px-4">

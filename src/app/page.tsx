@@ -16,7 +16,7 @@ import { useState, useEffect, useRef } from "react";
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
-  const [isLight, setIsLight] = useState(false);
+
   const [showCircle1, setShowCircle1] = useState(false);
   const [showCircle2, setShowCircle2] = useState(false);
   const [stackInView, setStackInView] = useState(false);

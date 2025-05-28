@@ -25,11 +25,11 @@ const VerticalTextCarousel: React.FC<VerticalTextCarouselProps> = ({
 
   return (
     <div
-      className={`relative overflow-hidden h-[120px] flex items-center justify-start w-full ${className} text-base sm:text-xl md:text-3xl lg:text-5xl xl:text-6xl text-left`}
+      className={`relative overflow-hidden h-auto min-h-[120px] sm:min-h-[140px] md:min-h-[160px] flex items-center justify-center w-full text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-center ${className}`}
       style={{ perspective: 600, ...style }}
     >
       <div
-        className="w-full h-full flex items-center justify-start"
+        className="w-full h-full flex items-center justify-center"
         style={{
           transformStyle: "preserve-3d",
           transition: "transform 0.7s cubic-bezier(0.77,0,0.175,1)",
@@ -39,12 +39,14 @@ const VerticalTextCarousel: React.FC<VerticalTextCarouselProps> = ({
         {phrases.map((phrase, i) => (
           <div
             key={i}
-            className="absolute w-full h-[120px] flex items-center sm:justify-center md:justify-start md:left-6 top-0 font-bold text-base sm:text-5xl md:text-3xl lg:text-5xl xl:text-6xl text-lef py-0"
+            className="absolute w-full h-auto min-h-[120px] sm:min-h-[140px] md:min-h-[160px] flex items-center justify-center top-0 font-bold text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-center py-0"
             style={{
               transform: `rotateX(${i * 90}deg) translateZ(40px)`,
-              lineHeight: "100%",
+              lineHeight: "120%",
               letterSpacing: 0,
               backfaceVisibility: "hidden",
+              overflowWrap: "break-word",
+              wordBreak: "break-word",
             }}
           >
             {phrase}

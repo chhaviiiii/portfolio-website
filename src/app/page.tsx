@@ -184,9 +184,9 @@ export default function Home() {
             ref={aboutSectionRef}
             className="w-full flex justify-center lg:justify-end mt-62 px-4 sm:px-8 md:px-20"
           >
-            <div className="max-w-3xl w-full rounded-3xl p-1 text-white text-center lg:text-left ml-1 mr-5">
+            <div className="max-w-3xl w-full rounded-3xl p-1 text-center lg:text-left ml-1 mr-0">
               <h2
-                className="font-bold mb-6 text-white sm:text-lg md:text-2xl min-h-[100px] sm:min-h-[120px] md:min-h-[150px]"
+                className="font-bold mb-6 text-white sm:text-2xl md:text-3xl min-h-[100px] sm:min-h-[120px] md:min-h-[150px]"
                 style={{
                   fontFamily: "Inter, sans-serif",
                   lineHeight: "100%",
@@ -194,7 +194,7 @@ export default function Home() {
                   marginTop: -30,
                 }}
               >
-                <div className="w-full">
+                <div className="w-full flex justify-center lg:justify-start">
                   <VerticalTextCarousel
                     phrases={[
                       "Fullstack Developer",

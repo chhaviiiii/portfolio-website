@@ -186,7 +186,7 @@ export default function Home() {
           >
             <div className="max-w-3xl w-full rounded-3xl p-1 text-white text-center lg:text-left ml-1 mr-5">
               <h2
-                className="font-bold mb-6 text-white text-sm sm:text-lg md:text-2xl mr-40 min-h-[100px] sm:min-h-[120px] md:min-h-[150px]"
+                className="font-bold mb-6 text-white text-sm sm:text-lg md:text-2xl min-h-[100px] sm:min-h-[120px] md:min-h-[150px]"
                 style={{
                   fontFamily: "Inter, sans-serif",
                   lineHeight: "100%",
@@ -194,7 +194,7 @@ export default function Home() {
                   marginTop: -30,
                 }}
               >
-                <div className="ml-0 sm:ml-0 w-full">
+                <div className="w-full">
                   <VerticalTextCarousel
                     phrases={[
                       "Fullstack Developer",
@@ -232,7 +232,7 @@ export default function Home() {
                 href="https://www.linkedin.com/in/cnayyar/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-20 px-6 sm:px-10 py-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-lg shadow-lg hover:scale-110 transition-transform flex items-center gap-3 ml-0 lg:ml-auto"
+                className="inline-block mt-10 sm:mt-20 px-4 py-2 text-base sm:px-6 sm:py-3 sm:text-lg md:px-10 md:py-4 md:text-lg rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold shadow-lg hover:scale-110 transition-transform flex items-center gap-3 ml-0 lg:ml-auto"
               >
                 <span>Let&apos;s Connect!</span>
               </a>
@@ -286,7 +286,7 @@ export default function Home() {
               href="https://github.com/chhaviiiii"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 sm:px-10 py-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-lg shadow-lg hover:scale-110 transition-transform flex items-center gap-3"
+              className="px-4 py-2 text-base sm:px-6 sm:py-3 sm:text-lg md:px-10 md:py-4 md:text-lg rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold shadow-lg hover:scale-110 transition-transform flex items-center gap-3"
             >
               <span>More on Github</span>
             </a>

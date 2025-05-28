@@ -93,7 +93,7 @@ const StackSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="w-full flex justify-center mt-12 md:mt-32">
+    <section className="w-full flex justify-left mt-12 md:mt-32">
       <div className="w-full max-w-7xl flex flex-col px-4 sm:px-8 md:px-20">
         <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent text-left">
           My Stack

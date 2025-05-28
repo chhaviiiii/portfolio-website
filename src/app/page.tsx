@@ -271,7 +271,7 @@ export default function Home() {
           
           <section
             id="stack"
-            className={`w-full flex  justify-center px-4 mt-12 transition-all duration-700 ${stackInView ? "opacity-100" : "opacity-100"}`}
+            className={`w-full flex  justify-center px-0 mt-12 transition-all duration-700 ${stackInView ? "opacity-100" : "opacity-100"}`}
           >
             <StackSection />
           </section>

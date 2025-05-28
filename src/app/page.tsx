@@ -276,7 +276,10 @@ export default function Home() {
             </div>
           </section>
           
-          <section id="stack" className="w-full flex justify-center mt-70">
+          <section
+            id="stack"
+            className={`transition-all duration-700 ${stackInView ? "opacity-100" : "opacity-100"}`}
+          >
             <StackSection />
           </section>
           

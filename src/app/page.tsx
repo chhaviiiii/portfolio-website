@@ -21,7 +21,6 @@ export default function Home() {
   const [showCircle2, setShowCircle2] = useState(false);
   const [stackInView, setStackInView] = useState(false);
 
-  const handleThemeToggle = () => setIsLight((prev) => !prev);
 
   const aboutSectionRef = useRef<HTMLDivElement | null>(null);
   const imageRef = useRef<HTMLImageElement | null>(null);

@@ -37,14 +37,14 @@ const Navbar = () => {
 
   return (
     <div className="relative">
-      <nav
-        style={{
+    <nav
+      style={{
           borderRadius: isScrolled || isMobile ? "50%" : 30,
-          border: "1px solid #A92EA3",
-          opacity: 1,
-          background:
-            "linear-gradient(90deg, rgba(211, 9, 137, 0.50) 0%, rgba(148, 6, 199, 0.50) 100%)",
-        }}
+        border: "1px solid #A92EA3",
+        opacity: 1,
+        background:
+          "linear-gradient(90deg, rgba(211, 9, 137, 0.50) 0%, rgba(148, 6, 199, 0.50) 100%)",
+      }}
         className={`fixed top-4 z-[100] transition-all duration-1000 ease-in-out
           ${isScrolled || isMobile
             ? "right-4 w-12 h-12 flex items-center justify-center px-0 py-0"
@@ -74,42 +74,42 @@ const Navbar = () => {
           </button>
         ) : (
           <ul className="hidden lg:flex items-center gap-4 w-full justify-center">
-            {navItems.map((item, idx) => (
-              <React.Fragment key={item.label}>
-                <li>
-                  <a
-                    href={item.href}
+        {navItems.map((item, idx) => (
+          <React.Fragment key={item.label}>
+            <li>
+              <a
+                href={item.href}
                     {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    style={{
-                      height: 31,
-                      flexShrink: 0,
-                      color: "#FFFFFF",
-                      textAlign: "center",
-                      fontFamily: "Inter, sans-serif",
-                      fontSize: 20,
-                      fontStyle: "normal",
-                      fontWeight: 700,
-                      lineHeight: "normal",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      padding: "0 18px",
-                    }}
-                    className="hover:text-pink-200 transition"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-                {idx < navItems.length - 1 && (
-                  <li aria-hidden className="flex items-center justify-center">
-                    <div style={{ width: 1, height: 28, background: "#FFF", opacity: 1 }} />
-                  </li>
-                )}
-              </React.Fragment>
-            ))}
-          </ul>
+                style={{
+                  height: 31,
+                  flexShrink: 0,
+                  color: "#FFFFFF",
+                  textAlign: "center",
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: 20,
+                  fontStyle: "normal",
+                  fontWeight: 700,
+                  lineHeight: "normal",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "0 18px",
+                }}
+                className="hover:text-pink-200 transition"
+              >
+                {item.label}
+              </a>
+            </li>
+            {idx < navItems.length - 1 && (
+              <li aria-hidden className="flex items-center justify-center">
+                <div style={{ width: 1, height: 28, background: "#FFF", opacity: 1 }} />
+              </li>
+            )}
+          </React.Fragment>
+        ))}
+      </ul>
         )}
-      </nav>
+    </nav>
 
       {(isScrolled || isMobile) && isMenuOpen && (
         <div

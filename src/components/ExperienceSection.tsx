@@ -120,7 +120,7 @@ const ExperienceSection: React.FC = () => {
         data-section-id="responsibilities"
         className={`w-full md:w-1/2 min-h-[200px] sm:min-h-[400px] md:min-h-[600px] flex items-center md:justify-center justify-left transition-all duration-1000 ease-in-out transform ${
           visibleSections['responsibilities'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        } md:fixed md:top-0 md:right-0 md:mt-0 md:mr-0 md:pt-${hoveredIdx !== null ? hoveredIdx * 120 : 0}`}
+        }`}
       >
         {hoveredIdx !== null && (
           <div className="relative p-4 sm:p-6 mt-4 sm:mt-8 mr-0 sm:mr-8 rounded-2xl bg-[#000000] animate-border-trace">

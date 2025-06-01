@@ -8,7 +8,7 @@ import VerticalTextCarousel from "../components/VerticalTextCarousel";
 import ProjectCarousel from "../components/ProjectCarousel";
 import ExperienceSection from "../components/ExperienceSection";
 import Footer from "@/components/Footer";
-import StarsBackground from "@/components/StarsBackground";
+
 import CDPlayer from "../components/CDPlayer";
 import PlasmaBackground from '@/components/PlasmaBackground';
 
@@ -17,8 +17,6 @@ import { useState, useEffect, useRef } from "react";
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
 
-  const [showCircle1, setShowCircle1] = useState(false);
-  const [showCircle2, setShowCircle2] = useState(false);
   const [stackInView, setStackInView] = useState(false);
 
 
@@ -28,32 +26,6 @@ export default function Home() {
 
   const stackRef = useRef<HTMLDivElement | null>(null);
 
-  // Show circles in sequence after splash, hide both on scroll
-  useEffect(() => {
-    let timeout2: NodeJS.Timeout;
-    if (!showSplash) {
-      setShowCircle1(true);
-      timeout2 = setTimeout(() => setShowCircle2(true), 400);
-    } else {
-      setShowCircle1(false);
-      setShowCircle2(false);
-    }
-    return () => clearTimeout(timeout2);
-  }, [showSplash]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 30) {
-        setShowCircle1(false);
-        setShowCircle2(false);
-      } else if (!showSplash) {
-        setShowCircle1(true);
-        setTimeout(() => setShowCircle2(true), 400);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [showSplash]);
 
   useEffect(() => {
     const node = aboutSectionRef.current;

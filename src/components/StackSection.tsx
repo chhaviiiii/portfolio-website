@@ -1,140 +1,71 @@
 "use client";
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
+import { motion } from "framer-motion";
 
-const stackData = [
-  {
-    category: "Frontend",
-    skills: [
-      { name: "React", icon: "/react.png" },
-      { name: "Next.js", icon: "/nextjs-icon.svg" },
-      { name: "TypeScript", icon: "/ts.png" }, // Replace with correct icon if you have it
-      { name: "Tailwind CSS", icon: "/tailwind-css.svg" }, // Replace with correct icon if you have it
-    ],
-  },
-  {
-    category: "Backend",
-    skills: [
-      { name: "Node.js", icon: "/node-js.png" },
-      { name: "Express.js", icon: "/express-js.png" },
-      { name: "Firebase", icon: "/firebase.png" },
-      { name: "C++", icon: "/c++.png" },
-      { name: "Java", icon: "/java.jpg" },
-    ],
-  },
-  {
-    category: "ML & AI",
-    skills: [
-      { name: "Python", icon: "/python.png" },
-      { name: "TensorFlow", icon: "/tensorflow.svg" },
-      { name: "scikit-learn", icon: "/scikit-learn.png" },
-    ],
-  },
-  {
-    category: "Design",
-    skills: [
-      { name: "Figma", icon: "/figma.png" },
-      { name: "Adobe XD", icon: "/adobe.png" },
-      { name: "WCAG 2.1", icon: "/wcag.png" },
-    ],
-  },
-  {
-    category: "Tools",
-    skills: [
-      { name: "Git", icon: "/git.png" },
-      { name: "GitHub", icon: "/github.png" },
-      { name: "Docker", icon: "/docker.png" },
-      { name: "VS Code", icon: "/vs.png" },
-      { name: "CI/CD", icon: "/ci:cd.png" },
-    ],
-  },
+const stackIcons = [
+  { name: "Github", icon: "/github.svg" },
+  { name: "Node.js", icon: "/node.svg" },
+  { name: "React", icon: "/react.svg" },
+  { name: "MongoDB", icon: "/mongo.svg" },
+  { name: "Bash", icon: "/bash.svg" },
+  { name: "Python", icon: "/python.svg" },
+  { name: "Pytorch", icon: "/pytorch.svg" },
+  { name: "Git", icon: "/git.svg" },
+  { name: "Figma", icon: "/figma.svg" },
+  { name: "HTML", icon: "/html.svg" },
+  { name: "Invision", icon: "/invision.svg" },
+  { name: "Linux", icon: "/linux.svg" },
+  { name: "JS", icon: "/js.svg" },
+  { name: "Json", icon: "/json.svg" },
+  { name: "MySQL", icon: "/sql.svg" },
+  { name: "Typescript", icon: "/typescript.svg" },
+  { name: "VScode", icon: "/vscode.svg" },
+  { name: "Angular", icon: "/angular.svg" },
+  { name: "TailwindCSS", icon: "/tailwind.svg" },
+  { name: "Next.js", icon: "/next.svg" },
+  { name: "C++", icon: "/c++.svg" },
+  { name: "Adobe", icon: "/adobe.svg" },
 ];
 
-const iconFallback = (
-  <span className="w-16 h-16 bg-gray-700 rounded-2xl flex items-center justify-center text-white font-bold text-3xl">
-    <span role="img" aria-label="tool">🛠️</span>
-  </span>
-);
-
-const StackSection: React.FC = () => {
-  const stackRef = useRef<HTMLDivElement | null>(null);
-  const [stackInView, setStackInView] = useState(false);
-  const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [rowsInView, setRowsInView] = useState<boolean[]>(() => stackData.map(() => false));
-
-  useEffect(() => {
-    const node = stackRef.current;
-    if (!node) return;
-    const observer = new window.IntersectionObserver(
-      ([entry]) => setStackInView(entry.isIntersecting),
-      { threshold: 0.2 }
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const observers: IntersectionObserver[] = [];
-    rowRefs.current.forEach((node, idx) => {
-      if (!node) return;
-      const observer = new window.IntersectionObserver(
-        ([entry]) => {
-          setRowsInView(prev => {
-            const updated = [...prev];
-            updated[idx] = entry.isIntersecting;
-            return updated;
-          });
-        },
-        { threshold: 0.2 }
-      );
-      observer.observe(node);
-      observers.push(observer);
-    });
-    return () => observers.forEach(observer => observer.disconnect());
-  }, []);
-
-  return (
-    <section className="w-full flex justify-left mt-12 md:mt-32">
-      <div className="w-full max-w-7xl flex flex-col px-4 sm:px-8 md:px-20">
-        <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent text-left">
-          My Stack
-        </h2>
-        <div
-          ref={stackRef}
-          className={`mt-8 transition-all duration-1000
-            ${stackInView ? "opacity-100 scale-100" : "opacity-100 scale-90"}
-          `}
-        >
-          {stackData.map((cat, idx) => (
-            <div
-              key={cat.category}
-              ref={el => { rowRefs.current[idx] = el; }}
-              className={`grid grid-cols-1 md:grid-cols-[minmax(300px,auto)_1fr] items-center w-full transition-all duration-1000 mb-6 md:mb-10 mt-10
-                ${rowsInView[idx] ? "opacity-100 scale-100" : "opacity-0 scale-90"}
-              `}
-            >
-              {/* Category Name */}
-              <span className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent ">
-                {cat.category}
-              </span>
-              {/* Skills */}
-              <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-8 gap-y-8 md:gap-x-16 md:gap-y-16 flex-1 place-items-center mt-10`}>
-                {cat.skills.map((skill) => (
-                  <span key={skill.name} className="flex flex-col items-center justify-center gap-4 md:gap-6 text-white">
-                    {skill.icon ? (
-                      <img src={skill.icon} alt={skill.name} className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white p-2" />
-                    ) : (
-                      iconFallback
-                    )}
-                    <span className="text-lg md:text-2xl font-bold text-center">{skill.name}</span>
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+const StackSection: React.FC = () => (
+  <section className="w-full mx-auto">
+    <div className="mx-auto mt-20">
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        viewport={{ amount: 0.3 }}
+        transition={{ duration: 0.5 }}
+        className="text-3xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent mb-6 sm:mb-10 text-left pl-4 sm:pl-8 md:pl-20"
+      >
+        Tech Stack
+      </motion.h2>
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-8 justify-items-center">
+        {stackIcons.map((tech, index) => (
+          <motion.div
+            key={tech.name}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            viewport={{ amount: 0.3 }}
+            transition={{ 
+              duration: 0.5,
+              delay: index * 0.05 // Reduced stagger delay for smoother exit
+            }}
+            className="relative bg-[#23234f]/50 rounded-xl p-4 shadow-lg flex flex-col items-center transition-transform duration-200 hover:scale-105"
+          >
+            <div className="absolute top-2 right-2"></div>
+            <img
+              src={tech.icon}
+              alt={tech.name}
+              className="w-8 h-8 sm:w-20 sm:h-20 md:w-22 md:h-18 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_16px_rgba(0,225,120,0.5)]"
+            />
+            <span className="mt-2 text-xs text-white text-opacity-80 text-center">{tech.name}</span>
+          </motion.div>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default StackSection;

@@ -55,7 +55,7 @@ const projects = [
     description:
       "Recommendation engine using collaborative and content-based filtering with TensorFlow, improving VR experience suggestions by 20%.",
     tools: ["Python", "TensorFlow", "Jupyter", "Pandas"],
-    link: "https://github.com/chhavi/vr-recommendation",
+    link: "https://github.com/chhaviiiii/Virtual-Reality-Experience-Recommendation-System",
   },
   {
     image: "/fmm.png",

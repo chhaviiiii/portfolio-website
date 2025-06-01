@@ -39,7 +39,7 @@ const VerticalTextCarousel: React.FC<VerticalTextCarouselProps> = ({
         {phrases.map((phrase, i) => (
           <div
             key={i}
-            className="absolute w-full h-auto min-h-[120px] sm:min-h-[140px] md:min-h-[160px] flex items-center justify-center top-0 font-bold text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-center py-0"
+            className="absolute w-full h-auto min-h-[120px] sm:min-h-[140px] md:min-h-[160px] flex items-center justify-center top-0 font-bold text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl text-center py-0"
             style={{
               transform: `rotateX(${i * 90}deg) translateZ(40px)`,
               lineHeight: "120%",

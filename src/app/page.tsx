@@ -10,6 +10,7 @@ import ExperienceSection from "../components/ExperienceSection";
 import Footer from "@/components/Footer";
 import StarsBackground from "@/components/StarsBackground";
 import CDPlayer from "../components/CDPlayer";
+import PlasmaBackground from '@/components/PlasmaBackground';
 
 import { useState, useEffect, useRef } from "react";
 
@@ -114,58 +115,7 @@ export default function Home() {
           overflow: "hidden",
         }}
       >
-        <StarsBackground />
-        {/* Decorative circles with animation */}
-
-            <div
-              className={`
-                absolute
-                w-40 sm:w-80 md:w-[500px]
-                h-40 sm:h-80 md:h-[500px]
-                top-40 sm:top-60 md:top-[420px]
-                left-2 md:left-[250px]
-                ${/* Only translate-x-0 on md and up */""}
-                md:translate-x-0
-                rounded-full
-                z-10
-                transition-all duration-1000
-              `}
-              style={{
-                background:
-                  "radial-gradient(50% 50% at 50% 50%, rgba(211, 9, 137, 0.60) 37.27%, rgba(99, 10, 173, 0.60) 100%)",
-                boxShadow: "0px 4px 4px 0px #D30989",
-                opacity: showCircle1 ? 1 : 0,
-                transform: showCircle1
-                  ? "scale(1)"
-                  : "scale(0.8)",
-              }}
-              aria-hidden
-            />
-            <div
-              className={`
-                absolute
-                w-40 sm:w-80 md:w-[500px]
-                h-40 sm:h-80 md:h-[500px]
-                top-20 sm:top-40 md:top-[250px]
-                right-2 md:left-[380px]
-                ${/* Only translate-x-0 on md and up */""}
-                md:translate-x-0
-                rounded-full
-                z-10
-                transition-all duration-1000
-              `}
-              style={{
-                background:
-                  "radial-gradient(50% 50% at 50% 50%, rgba(99, 10, 173, 0.40) 34.62%, rgba(211, 9, 137, 0.40) 100%)",
-                boxShadow: "0px 4px 4px 0px #FFF",
-                opacity: showCircle2 ? 1 : 0,
-                transform: showCircle2
-                  ? "scale(1)"
-                  : "scale(0.8)",
-              }}
-              aria-hidden
-            />
-          
+        <PlasmaBackground />
         <div id="home" className= "relative z-10">
           <Navbar />
           <main className="flex-1 flex flex-col items-center justify-center text-center px-4">
@@ -182,9 +132,9 @@ export default function Home() {
           </main>
           <section 
             ref={aboutSectionRef}
-            className="w-full flex justify-center lg:justify-end mt-62 px-4 sm:px-8 md:px-20"
+            className="w-full flex justify-center mt-62 px-4 sm:px-8 md:px-20"
           >
-            <div className="max-w-3xl w-full rounded-3xl p-1 text-center lg:text-left ml-1 mr-0">
+            <div className="max-w-3xl w-full rounded-3xl p-1 text-center">
               <h2
                 className="font-bold mb-6 text-white sm:text-2xl md:text-3xl min-h-[100px] sm:min-h-[120px] md:min-h-[150px]"
                 style={{
@@ -194,7 +144,7 @@ export default function Home() {
                   marginTop: -30,
                 }}
               >
-                <div className="w-full flex justify-center lg:justify-start">
+                <div className="w-full flex justify-center">
                   <VerticalTextCarousel
                     phrases={[
                       "Fullstack Developer",
@@ -221,7 +171,7 @@ export default function Home() {
                 <span> 🌙</span>
               </h3>
               <p
-                className="text-base sm:text-xl md:text-3xl text-white/90 mb-8 lg:mb-10 mx-auto lg:mx-0 "
+                className="text-base sm:text-xl md:text-3xl text-white/90 mb-8 lg:mb-10 mx-auto"
                 style={{
                   fontFamily: "Inter, sans-serif",
                 }}
@@ -232,7 +182,7 @@ export default function Home() {
                 href="https://www.linkedin.com/in/cnayyar/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-10 sm:mt-20 px-4 py-2 text-base sm:px-6 sm:py-3 sm:text-lg md:px-10 md:py-4 md:text-lg rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold shadow-lg hover:scale-110 transition-transform flex items-center gap-3 ml-0 lg:ml-auto"
+                className="inline-block mt-10 sm:mt-20 px-4 py-2 text-base sm:px-6 sm:py-3 sm:text-lg md:px-10 md:py-4 md:text-lg rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold shadow-lg hover:scale-110 transition-transform flex items-center gap-3 mx-auto"
               >
                 <span>Let&apos;s Connect!</span>
               </a>
@@ -241,7 +191,7 @@ export default function Home() {
          
           <section
             id="about"
-            className="w-full flex flex-col md:flex-row justify-center items-center md:items-start mt-52 md:mt-150 px-4 sm:px-8 md:px-20"
+            className="w-full flex flex-col md:flex-row justify-center items-center md:items-start mt-52 md:mt-150 px-4 sm:px-8 md:px-20 relative z-20"
           >
             <div className="w-full md:w-1/2 flex-1 mb-8 md:mb-0">
               <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent mb-6 text-left">
@@ -257,7 +207,7 @@ export default function Home() {
               </ul>
             </div>
             {/* Right: Image */}
-            <div className="w-full md:w-1/2 flex justify-center md:justify-end">
+            <div className="w-full md:w-1/2 flex justify-center md:justify-end relative z-20">
               <img
                 ref={imageRef}
                 src="/self.png"
@@ -265,6 +215,7 @@ export default function Home() {
                 className={`object-cover rounded-2xl shadow-lg border-4 border-pink-400 transition-all duration-1000 w-full max-w-xs sm:max-w-md md:max-w-lg max-h-[40vh] ${
                   imageInView ? "opacity-100 scale-100" : "opacity-0 scale-75"
                 }`}
+                style={{ position: 'relative', zIndex: 20 }}
               />
             </div>
           </section>

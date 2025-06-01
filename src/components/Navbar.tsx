@@ -43,7 +43,7 @@ const Navbar = () => {
         border: "1px solid #A92EA3",
         opacity: 1,
         background:
-          "linear-gradient(90deg, rgba(211, 9, 137, 0.50) 0%, rgba(148, 6, 199, 0.50) 100%)",
+          "solidrgb(0, 0, 0) opacity-100",
       }}
         className={`fixed top-4 z-[100] transition-all duration-1000 ease-in-out
           ${isScrolled || isMobile

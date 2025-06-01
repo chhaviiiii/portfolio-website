@@ -147,14 +147,10 @@ const ProjectCarousel: React.FC = () => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-w-[90vw] sm:min-w-[400px] md:min-w-[600px] max-w-[90vw] sm:max-w-[400px] md:max-w-[600px] bg-gradient-to-br from-80% to-pink-500 bg-opacity-10 rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col items-center transition-transform hover:scale-105 cursor-pointer"
+                className="min-w-[90vw] sm:min-w-[400px] md:min-w-[600px] max-w-[90vw] sm:max-w-[400px] md:max-w-[600px] bg-gradient-to-br from-40% to-black bg-opacity-30 rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col items-center transition-transform hover:scale-105 cursor-pointer"
                 style={{ flex: "0 0 auto" }}
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-40 sm:h-48 object-cover rounded-2xl mb-6 sm:mb-8 bg-gray-200"
-                />
+              
                 <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-5 text-center">
                   {project.title}
                 </h3>
@@ -179,14 +175,9 @@ const ProjectCarousel: React.FC = () => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-w-[90vw] sm:min-w-[400px] md:min-w-[600px] max-w-[90vw] sm:max-w-[400px] md:max-w-[600px] bg-gradient-to-br from-80% to-pink-500 bg-opacity-10 rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col items-center transition-transform hover:scale-105 cursor-pointer"
+                className="min-w-[90vw] sm:min-w-[400px] md:min-w-[600px] max-w-[90vw] sm:max-w-[400px] md:max-w-[600px] bg-gradient-to-br from-40% to-black bg-opacity-30 rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col items-center transition-transform hover:scale-105 cursor-pointer"
                 style={{ flex: "0 0 auto" }}
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-40 sm:h-48 object-cover rounded-2xl mb-6 sm:mb-8 bg-gray-200"
-                />
                 <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-5 text-center">
                   {project.title}
                 </h3>
@@ -221,14 +212,10 @@ const ProjectCarousel: React.FC = () => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-w-[90vw] sm:min-w-[400px] md:min-w-[600px] max-w-[90vw] sm:max-w-[400px] md:max-w-[600px] bg-gradient-to-br from-80% to-pink-500 bg-opacity-10 rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col items-center transition-transform hover:scale-105 cursor-pointer"
+                className="min-w-[90vw] sm:min-w-[400px] md:min-w-[600px] max-w-[90vw] sm:max-w-[400px] md:max-w-[600px] bg-gradient-to-br from-40% to-black bg-opacity-30 rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col items-center transition-transform hover:scale-105 cursor-pointer"
                 style={{ flex: "0 0 auto" }}
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-40 sm:h-48 object-cover rounded-2xl mb-6 sm:mb-8 bg-gray-200"
-                />
+                
                 <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-5 text-center">
                   {project.title}
                 </h3>
@@ -253,14 +240,10 @@ const ProjectCarousel: React.FC = () => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-w-[90vw] sm:min-w-[400px] md:min-w-[600px] max-w-[90vw] sm:max-w-[400px] md:max-w-[600px] bg-gradient-to-br from-80% to-pink-500 bg-opacity-10 rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col items-center transition-transform hover:scale-105 cursor-pointer"
+                className="min-w-[90vw] sm:min-w-[400px] md:min-w-[600px] max-w-[90vw] sm:max-w-[400px] md:max-w-[600px] bg-gradient-to-br from-40% to-black bg-opacity-30 rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col items-center transition-transform hover:scale-105 cursor-pointer"
                 style={{ flex: "0 0 auto" }}
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-40 sm:h-48 object-cover rounded-2xl mb-6 sm:mb-8 bg-gray-200"
-                />
+              
                 <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-5 text-center">
                   {project.title}
                 </h3>

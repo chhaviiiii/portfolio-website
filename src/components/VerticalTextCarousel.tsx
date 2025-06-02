@@ -25,7 +25,7 @@ const VerticalTextCarousel: React.FC<VerticalTextCarouselProps> = ({
 
   return (
     <div
-      className={`relative overflow-hidden h-auto min-h-[120px] sm:min-h-[140px] md:min-h-[160px] flex items-center justify-center w-full text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-center ${className}`}
+      className={`relative overflow-hidden h-auto min-h-[120px] sm:min-h-[140px] md:min-h-[160px] flex items-center justify-center w-full text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-center ${className}`}
       style={{ perspective: 600, ...style }}
     >
       <div

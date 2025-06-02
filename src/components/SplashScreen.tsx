@@ -30,8 +30,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
     >
       <div className="relative flex items-center justify-center w-full">
         <h1
-          style={{ fontFamily: 'Inter', fontSize: 96 }}
-          className="font-bold text-white text-[48px] sm:text-[48px] md:text-[96px] relative"
+          className="font-bold text-white text-3xl sm:text-4xl md:text-7xl relative"
         >
          
           <TypeWriter

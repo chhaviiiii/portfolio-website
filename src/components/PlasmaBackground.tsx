@@ -128,6 +128,98 @@ const PlasmaBackground: React.FC = () => {
               translateY(10%);
           }
         }
+
+        @media (max-width: 768px) {
+          .wrapper {
+            filter: blur(100px);
+          }
+
+          .gradient-1 {
+            width: 800px;
+            height: 800px;
+            animation-duration: 10s;
+            opacity: 0.65;
+          }
+
+          .gradient-2 {
+            width: 600px;
+            height: 600px;
+            animation-duration: 12s;
+            opacity: 0.65;
+          }
+
+          .gradient-3 {
+            width: 400px;
+            height: 400px;
+            animation-duration: 8s;
+            opacity: 0.65;
+          }
+
+          @keyframes animation-gradient-1 {
+            0% {
+              transform: translateY(-50%) translateX(-50%) rotate(-20deg) translateX(40%);
+            }
+            25% {
+              transform: translateY(-50%) translateX(-50%) skew(-15deg, -15deg)
+                rotate(80deg) translateX(60%);
+            }
+            50% {
+              transform: translateY(-50%) translateX(-50%) rotate(180deg) translateX(45%);
+            }
+            75% {
+              transform: translateY(-50%) translateX(-50%) skew(15deg, 15deg)
+                rotate(240deg) translateX(35%);
+            }
+            100% {
+              transform: translateY(-50%) translateX(-50%) rotate(340deg) translateX(40%);
+            }
+          }
+
+          @keyframes animation-gradient-2 {
+            0% {
+              transform: translateY(-50%) translateX(-50%) rotate(40deg) translateX(-40%);
+            }
+            25% {
+              transform: translateY(-50%) translateX(-50%) skew(15deg, 15deg)
+                rotate(110deg) translateX(-25%);
+            }
+            50% {
+              transform: translateY(-50%) translateX(-50%) rotate(210deg) translateX(-55%);
+            }
+            75% {
+              transform: translateY(-50%) translateX(-50%) skew(-15deg, -15deg)
+                rotate(300deg) translateX(-30%);
+            }
+            100% {
+              transform: translateY(-50%) translateX(-50%) rotate(400deg) translateX(-40%);
+            }
+          }
+
+          @keyframes animation-gradient-3 {
+            0% {
+              transform: translateY(-50%) translateX(-50%) translateX(-35%)
+                translateY(20%);
+            }
+            20% {
+              transform: translateY(-50%) translateX(-50%) translateX(40%)
+                translateY(-40%);
+            }
+            40% {
+              transform: translateY(-50%) translateX(-50%) translateX(-45%)
+                translateY(-25%);
+            }
+            60% {
+              transform: translateY(-50%) translateX(-50%) translateX(50%) translateY(30%);
+            }
+            80% {
+              transform: translateY(-50%) translateX(-50%) translateX(25%) translateY(45%);
+            }
+            100% {
+              transform: translateY(-50%) translateX(-50%) translateX(-35%)
+                translateY(20%);
+            }
+          }
+        }
       `}</style>
     </div>
   );

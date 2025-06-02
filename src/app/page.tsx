@@ -8,7 +8,6 @@ import VerticalTextCarousel from "../components/VerticalTextCarousel";
 import ProjectCarousel from "../components/ProjectCarousel";
 import ExperienceSection from "../components/ExperienceSection";
 import Footer from "@/components/Footer";
-
 import CDPlayer from "../components/CDPlayer";
 import PlasmaBackground from '@/components/PlasmaBackground';
 

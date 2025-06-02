@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const experiences = [
   {
@@ -36,149 +37,70 @@ const experiences = [
 ];
 
 const ExperienceSection: React.FC = () => {
-  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
-  const [openIdx, setOpenIdx] = useState<number | null>(null); // for mobile tap
-  const [isMobile, setIsMobile] = useState(false);
-  const [visibleSections, setVisibleSections] = useState<{ [key: string]: boolean }>({});
-  const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const sectionId = entry.target.getAttribute('data-section-id');
-          if (sectionId) {
-            setVisibleSections(prev => ({
-              ...prev,
-              [sectionId]: entry.isIntersecting
-            }));
-          }
-        });
-      },
-      {
-        threshold: 0.2,
-        rootMargin: '0px 0px -100px 0px'
-      }
-    );
-    Object.values(sectionRefs.current).forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-    return () => observer.disconnect();
-  }, []);
-
-  const setRef = (sectionId: string) => (el: HTMLDivElement | null) => {
-    sectionRefs.current[sectionId] = el;
+  const handleClick = (idx: number) => {
+    setOpenIdx(openIdx === idx ? null : idx);
   };
 
   return (
-    <section className="w-full py-8 sm:py-16 md:py-24">
-      <h2 
-        ref={setRef('title')}
-        data-section-id="title"
-        className={`text-3xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent mb-6 sm:mb-10 text-left pl-4 sm:pl-8 md:pl-20 transition-all duration-1000 ease-in-out transform ${
-          visibleSections['title'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
-      >
+    <motion.section
+      className="w-full mx-auto mt-40"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ amount: 0.2 }}
+      transition={{ duration: 0.7, ease: 'easeOut' }}
+    >
+      <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent mb-8 text-left pl-4 sm:pl-8 md:pl-20">
         Experience
       </h2>
-      <div className="flex flex-col gap-8">
-        {experiences.map((exp, idx) => (
-          <div
-            key={exp.title}
-            ref={setRef(`job-${idx}`)}
-            data-section-id={`job-${idx}`}
-            className={`flex flex-col md:flex-row gap-4 md:gap-8 transition-all duration-1000 ease-in-out transform ${
-              visibleSections[`job-${idx}`] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
-            onMouseEnter={() => !isMobile && setHoveredIdx(idx)}
-            onMouseLeave={() => !isMobile && setHoveredIdx(null)}
-            onClick={() => isMobile && setOpenIdx(openIdx === idx ? null : idx)}
-          >
-            {/* Left: Title and Details */}
-            <div className="w-full md:w-1/2 p-4 sm:p-6 md:p-8 min-h-[80px] sm:min-h-[120px] rounded-2xl cursor-pointer">
-              <div className={`text-2xl sm:text-4xl md:text-6xl font-bold mb-2 sm:mb-3 transition-all duration-500 pl-2 sm:pl-6 md:pl-10 relative group ${
-                (isMobile ? openIdx === idx : hoveredIdx === idx)
-                  ? "transform translate-y-[-4px] scale-[1.02] text-white"
-                  : "text-white"
-              }`}>
-                <span className="relative z-10">{exp.title}</span>
-                <span className={`absolute inset-0 bg-gradient-to-r from-pink-500/20 to-purple-500/20 blur-xl transition-all duration-500 ${
-                  (isMobile ? openIdx === idx : hoveredIdx === idx) ? "opacity-100" : "opacity-0"
-                }`}></span>
-              </div>
-              <div className={`text-base sm:text-lg md:text-xl font-semibold transition-all duration-500 pl-2 sm:pl-6 md:pl-10 ${
-                (isMobile ? openIdx === idx : hoveredIdx === idx)
-                  ? "text-white/80"
-                  : "text-white/60"
-              }`}>
-                {exp.place}
-              </div>
-              <div className="text-sm sm:text-base md:text-lg text-white/40 pl-2 sm:pl-6 md:pl-10 mt-1">{exp.date}</div>
-            </div>
-
-            {/* Right: Responsibilities */}
-            {((isMobile && openIdx === idx) || (!isMobile && hoveredIdx === idx)) && (
-              <div className={`w-full md:w-1/2 transition-all duration-500 ${
-                (isMobile ? openIdx === idx : hoveredIdx === idx) ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
-              }`}>
-                <div className="p-4 sm:p-6 md:pr-12 lg:pr-16 rounded-2xl bg-[#000000] animate-border-trace h-full">
-                  <p className="text-base sm:text-xl md:text-2xl text-white/90 text-justify">
-                    {exp.responsibilities[0]}
-                  </p>
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-      <style jsx>{`
-        @keyframes border-trace {
-          0% {
-            background-position: 0% 0%;
-          }
-          25% {
-            background-position: 100% 0%;
-          }
-          50% {
-            background-position: 100% 100%;
-          }
-          75% {
-            background-position: 0% 100%;
-          }
-          100% {
-            background-position: 0% 0%;
-          }
-        }
-        .animate-border-trace {
-          position: relative;
-          border: 5px solid transparent;
-          background-clip: padding-box;
-        }
-        .animate-border-trace::before {
-          content: '';
-          position: absolute;
-          top: -2px;
-          left: -2px;
-          right: -2px;
-          bottom: -2px;
-          background: linear-gradient(90deg, #A92EA3 50%, transparent 50%);
-          background-size: 200% 200%;
-          border-radius: 1rem;
-          animation: border-trace 2.3s linear infinite;
-          z-index: -3;
-          pointer-events: none;
-        }
-      `}</style>
-    </section>
+      <ul className="divide-y divide-white/10 pl-4 sm:pl-8 md:pl-20 pr-4 sm:pr-8 md:pr-20">
+        {experiences.map((exp, idx) => {
+          const ref = useRef<HTMLLIElement>(null);
+          const inView = useInView(ref, { amount: 0.2, margin: "0px 0px -20% 0px" });
+          return (
+            <motion.li
+              key={exp.title}
+              ref={ref}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 30 }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              className="bg-transparent"
+            >
+              <button
+                className={`w-full text-left px-6 py-5 focus:outline-none flex flex-col gap-1 transition-colors rounded-xl
+                  ${openIdx === idx ? 'bg-white/5 shadow-[0_2px_24px_0_rgba(169,46,163,0.15)] ring-2 ring-pink-400/30' : 'hover:bg-white/2'}`}
+                onClick={() => handleClick(idx)}
+                aria-expanded={openIdx === idx}
+                style={{ transition: 'box-shadow 0.3s, background 0.3s' }}
+              >
+                <span className="text-2xl sm:text-3xl font-bold text-white flex items-center justify-between">
+                  {exp.title}
+                  <span className={`ml-2 transition-transform ${openIdx === idx ? 'rotate-90' : ''}`}>▶</span>
+                </span>
+                <span className="text-base sm:text-lg font-semibold text-white/80">{exp.place}</span>
+                <span className="text-sm sm:text-base text-white/50">{exp.date}</span>
+              </button>
+              {openIdx === idx && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.3 }}
+                  className="px-8 pb-6 pt-1"
+                >
+                  <div className="rounded-xl bg-gradient-to-br from-[#18181c]/80 to-[#A92EA3]/10 border border-[#A92EA3]/30 p-4 shadow-md">
+                    <p className="text-base sm:text-lg text-white/90 text-justify">
+                      {exp.responsibilities[0]}
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+            </motion.li>
+          );
+        })}
+      </ul>
+    </motion.section>
   );
 };
 

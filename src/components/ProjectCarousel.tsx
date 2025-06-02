@@ -26,15 +26,6 @@ const projects = [
     tools: ["CSS", "ADA", "WCAG", "JavaScript"],
     link: "https://www.webability.io/",
   },
-
-  {
-    image: "/re.png",
-    title: "Raffles Educity Online Tool",
-    description:
-      "Responsive WordPress website integrated with accessibility widget for ADA and WCAG compliance, optimized for mobile devices.",
-    tools: ["WordPress", "CSS", "HTML", "Accessibility"],
-    link: "https://raffleseducity.com"
-  },
   {
     image: "/sc.png",
     title: "Starcrew Website",
@@ -42,14 +33,6 @@ const projects = [
       "UX research-driven responsive website built with Framer, featuring smooth animations and cross-browser compatibility.",
     tools: ["Framer", "CSS", "UX Research", "BrowserStack"],
     link: "https://starcrew.com"
-  },
-  {
-    image: "/quiz.png",
-    title: "Quiz Application",
-    description:
-      "Desktop quiz app built with Python and Tkinter, featuring an intuitive GUI and object-oriented design for modular functionality.",
-    tools: ["Python", "Tkinter", "OOP", "GUI"],
-    link: "https://github.com/chhaviiiii/Quiz-App"
   },
   {
     image: "/vph.png",
@@ -66,14 +49,6 @@ const projects = [
       "Recommendation engine using collaborative and content-based filtering with TensorFlow, improving VR experience suggestions by 20%.",
     tools: ["Python", "TensorFlow", "Jupyter", "Pandas"],
     link: "https://github.com/chhaviiiii/Virtual-Reality-Experience-Recommendation-System",
-  },
-  {
-    image: "/fm.png",
-    title: "Finance Manager Desktop App",
-    description:
-      "Java Swing GUI application for managing personal finances with JSON-based data persistence and intuitive interface.",
-    tools: ["Java", "Swing", "JSON"],
-    link: "https://github.com/chhaviiiii/Finance-Manager",
   },
 ];
 
@@ -103,26 +78,26 @@ const ProjectCarousel: React.FC = () => {
               duration: 0.5,
               delay: idx * 0.1
             }}
-            className="group bg-[#23234f]/50 rounded-2xl shadow-lg p-6 flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(169,46,163,0.5)] hover:border hover:border-[#A92EA3]"
+            className="group bg-[#23234f]/50 rounded-2xl shadow-lg p-4 sm:p-5 flex flex-col transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(169,46,163,0.5)] hover:border hover:border-[#A92EA3]"
           >
-            <div className="aspect-video w-full mb-4 rounded-lg overflow-hidden">
+            <div className="aspect-video w-full mb-3 rounded-lg overflow-hidden">
               <img
                 src={project.image}
                 alt={project.title}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               />
             </div>
-            <h3 className="text-xl font-bold text-white mb-3 group-hover:text-pink-200 transition-colors">
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-pink-200 transition-colors">
               {project.title}
             </h3>
-            <p className="text-white/80 text-sm mb-4 flex-grow">
+            <p className="text-white/80 text-xs sm:text-sm mb-3 flex-grow">
               {project.description}
             </p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5">
               {project.tools.map((tool) => (
                 <span
                   key={tool}
-                  className="bg-black/30 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                  className="px-2 py-1 text-xs bg-white/10 rounded-full text-white/80"
                 >
                   {tool}
                 </span>

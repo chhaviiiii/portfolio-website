@@ -9,22 +9,16 @@ const navItems = [
 ];
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
-    };
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1024); // Tailwind's lg breakpoint
     };
-    window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
     handleResize();
     return () => {
-      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
     };
   }, []);

@@ -37,8 +37,19 @@ const experiences = [
 
 const ExperienceSection: React.FC = () => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const [openIdx, setOpenIdx] = useState<number | null>(null); // for mobile tap
+  const [isMobile, setIsMobile] = useState(false);
   const [visibleSections, setVisibleSections] = useState<{ [key: string]: boolean }>({});
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -58,11 +69,9 @@ const ExperienceSection: React.FC = () => {
         rootMargin: '0px 0px -100px 0px'
       }
     );
-
     Object.values(sectionRefs.current).forEach((ref) => {
       if (ref) observer.observe(ref);
     });
-
     return () => observer.disconnect();
   }, []);
 
@@ -90,23 +99,24 @@ const ExperienceSection: React.FC = () => {
             className={`flex flex-col md:flex-row gap-4 md:gap-8 transition-all duration-1000 ease-in-out transform ${
               visibleSections[`job-${idx}`] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
-            onMouseEnter={() => setHoveredIdx(idx)}
-            onMouseLeave={() => setHoveredIdx(null)}
+            onMouseEnter={() => !isMobile && setHoveredIdx(idx)}
+            onMouseLeave={() => !isMobile && setHoveredIdx(null)}
+            onClick={() => isMobile && setOpenIdx(openIdx === idx ? null : idx)}
           >
             {/* Left: Title and Details */}
             <div className="w-full md:w-1/2 p-4 sm:p-6 md:p-8 min-h-[80px] sm:min-h-[120px] rounded-2xl cursor-pointer">
               <div className={`text-2xl sm:text-4xl md:text-6xl font-bold mb-2 sm:mb-3 transition-all duration-500 pl-2 sm:pl-6 md:pl-10 relative group ${
-                hoveredIdx === idx
+                (isMobile ? openIdx === idx : hoveredIdx === idx)
                   ? "transform translate-y-[-4px] scale-[1.02] text-white"
                   : "text-white"
               }`}>
                 <span className="relative z-10">{exp.title}</span>
                 <span className={`absolute inset-0 bg-gradient-to-r from-pink-500/20 to-purple-500/20 blur-xl transition-all duration-500 ${
-                  hoveredIdx === idx ? "opacity-100" : "opacity-0"
+                  (isMobile ? openIdx === idx : hoveredIdx === idx) ? "opacity-100" : "opacity-0"
                 }`}></span>
               </div>
               <div className={`text-base sm:text-lg md:text-xl font-semibold transition-all duration-500 pl-2 sm:pl-6 md:pl-10 ${
-                hoveredIdx === idx
+                (isMobile ? openIdx === idx : hoveredIdx === idx)
                   ? "text-white/80"
                   : "text-white/60"
               }`}>
@@ -116,15 +126,17 @@ const ExperienceSection: React.FC = () => {
             </div>
 
             {/* Right: Responsibilities */}
-            <div className={`w-full md:w-1/2 transition-all duration-500 ${
-              hoveredIdx === idx ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
-            }`}>
-              <div className="p-4 sm:p-6 rounded-2xl bg-[#000000] animate-border-trace h-full">
-                <p className="text-base sm:text-xl md:text-2xl text-white/90 text-justify">
-                  {exp.responsibilities[0]}
-                </p>
+            {((isMobile && openIdx === idx) || (!isMobile && hoveredIdx === idx)) && (
+              <div className={`w-full md:w-1/2 transition-all duration-500 ${
+                (isMobile ? openIdx === idx : hoveredIdx === idx) ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+              }`}>
+                <div className="p-4 sm:p-6 md:pr-12 lg:pr-16 rounded-2xl bg-[#000000] animate-border-trace h-full">
+                  <p className="text-base sm:text-xl md:text-2xl text-white/90 text-justify">
+                    {exp.responsibilities[0]}
+                  </p>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         ))}
       </div>
@@ -146,13 +158,11 @@ const ExperienceSection: React.FC = () => {
             background-position: 0% 0%;
           }
         }
-
         .animate-border-trace {
           position: relative;
           border: 5px solid transparent;
           background-clip: padding-box;
         }
-
         .animate-border-trace::before {
           content: '';
           position: absolute;

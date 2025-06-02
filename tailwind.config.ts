@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        roboto: ['var(--font-roboto)'],
+      },
       keyframes: {
         blink: {
           '0%, 100%': { opacity: '1' },

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useMemo } from "react";
 import { motion, useInView } from "framer-motion";
 
 const experiences = [
@@ -39,6 +39,14 @@ const experiences = [
 const ExperienceSection: React.FC = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
+  // Create an array of refs for each experience
+  const refs = useMemo(
+    () => experiences.map(() => React.createRef<HTMLLIElement>()),
+    []
+  );
+  // Create an array of inView states for each ref
+  const inViews = refs.map(ref => useInView(ref, { amount: 0.2, margin: "0px 0px -20% 0px" }));
+
   const handleClick = (idx: number) => {
     setOpenIdx(openIdx === idx ? null : idx);
   };
@@ -55,50 +63,46 @@ const ExperienceSection: React.FC = () => {
         Experience
       </h2>
       <ul className="divide-y divide-white/10 pl-4 sm:pl-8 md:pl-20 pr-4 sm:pr-8 md:pr-20">
-        {experiences.map((exp, idx) => {
-          const ref = useRef<HTMLLIElement>(null);
-          const inView = useInView(ref, { amount: 0.2, margin: "0px 0px -20% 0px" });
-          return (
-            <motion.li
-              key={exp.title}
-              ref={ref}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              initial={{ opacity: 0, y: 30 }}
-              transition={{ duration: 0.5, delay: idx * 0.08 }}
-              className="bg-transparent"
+        {experiences.map((exp, idx) => (
+          <motion.li
+            key={exp.title}
+            ref={refs[idx]}
+            animate={inViews[idx] ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 30 }}
+            transition={{ duration: 0.5, delay: idx * 0.08 }}
+            className="bg-transparent"
+          >
+            <button
+              className={`w-full text-left px-6 py-5 focus:outline-none flex flex-col gap-1 transition-colors rounded-xl
+                ${openIdx === idx ? 'bg-white/5 shadow-[0_2px_24px_0_rgba(169,46,163,0.15)] ring-2 ring-pink-400/30' : 'hover:bg-white/2'}`}
+              onClick={() => handleClick(idx)}
+              aria-expanded={openIdx === idx}
+              style={{ transition: 'box-shadow 0.3s, background 0.3s' }}
             >
-              <button
-                className={`w-full text-left px-6 py-5 focus:outline-none flex flex-col gap-1 transition-colors rounded-xl
-                  ${openIdx === idx ? 'bg-white/5 shadow-[0_2px_24px_0_rgba(169,46,163,0.15)] ring-2 ring-pink-400/30' : 'hover:bg-white/2'}`}
-                onClick={() => handleClick(idx)}
-                aria-expanded={openIdx === idx}
-                style={{ transition: 'box-shadow 0.3s, background 0.3s' }}
+              <span className="text-2xl sm:text-3xl font-bold text-white flex items-center justify-between">
+                {exp.title}
+                <span className={`ml-2 transition-transform ${openIdx === idx ? 'rotate-90' : ''}`}>▶</span>
+              </span>
+              <span className="text-base sm:text-lg font-semibold text-white/80">{exp.place}</span>
+              <span className="text-sm sm:text-base text-white/50">{exp.date}</span>
+            </button>
+            {openIdx === idx && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.3 }}
+                className="px-8 pb-6 pt-1"
               >
-                <span className="text-2xl sm:text-3xl font-bold text-white flex items-center justify-between">
-                  {exp.title}
-                  <span className={`ml-2 transition-transform ${openIdx === idx ? 'rotate-90' : ''}`}>▶</span>
-                </span>
-                <span className="text-base sm:text-lg font-semibold text-white/80">{exp.place}</span>
-                <span className="text-sm sm:text-base text-white/50">{exp.date}</span>
-              </button>
-              {openIdx === idx && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.3 }}
-                  className="px-8 pb-6 pt-1"
-                >
-                  <div className="rounded-xl bg-gradient-to-br from-[#18181c]/80 to-[#A92EA3]/10 border border-[#A92EA3]/30 p-4 shadow-md">
-                    <p className="text-base sm:text-lg text-white/90 text-justify">
-                      {exp.responsibilities[0]}
-                    </p>
-                  </div>
-                </motion.div>
-              )}
-            </motion.li>
-          );
-        })}
+                <div className="rounded-xl bg-gradient-to-br from-[#18181c]/80 to-[#A92EA3]/10 border border-[#A92EA3]/30 p-4 shadow-md">
+                  <p className="text-base sm:text-lg text-white/90 text-justify">
+                    {exp.responsibilities[0]}
+                  </p>
+                </div>
+              </motion.div>
+            )}
+          </motion.li>
+        ))}
       </ul>
     </motion.section>
   );

@@ -183,7 +183,7 @@ export default function Home() {
                 ref={imageRef}
                 src="/self.png"
                 alt="Chhavi Nayyar"
-                className={`object-cover rounded-2xl shadow-lg border-4 border-pink-400 transition-all duration-1000 w-full max-w-xs sm:max-w-md md:max-w-lg max-h-[40vh] ${
+                className={`object-cover rounded-2xl shadow-lg border-4 border-pink-400 transition-all duration-1000 w-full max-w-xs sm:max-w-md md:max-w-lg max-h-[60vh] ${
                   imageInView ? "opacity-100 scale-100" : "opacity-0 scale-75"
                 }`}
                 style={{ position: 'relative', zIndex: 20 }}

@@ -5,7 +5,7 @@ const navItems = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
-  { label: "Resume", href: "/ChhaviNayyar.pdf", external: true },
+  { label: "Resume", href: "/CHHAVI NAYYAR.pdf", external: true },
 ];
 
 const Navbar = () => {

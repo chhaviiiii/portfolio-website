@@ -169,12 +169,11 @@ export default function Home() {
                 About Me
               </h2>
               <ul className="text-base sm:text-lg md:text-2xl text-white/100 mb-8 md:mb-20 space-y-4 font-sans text-left" style={{ fontFamily: "Inter, sans-serif" }}>
-                <li>🎓 Fourth-year Cognitive Systems &amp; Design student at UBC</li>
-                <li>💻 Fullstack developer with experience in React, Next.js, Node.js, and accessibility-first design</li>
-                <li>🔍 Detail-oriented with experience in UI/UX, A/B testing, and cross-functional collaboration</li>
-                <li>⚙️ Familiar with ML workflows, backend APIs, and building scalable systems</li>
-                <li>🚀 Worked on AI-powered tools, accessibility widgets, and data-driven web apps</li>
-                <li>🌱 Always learning, currently exploring MLOps and advanced system design</li>
+                <li>🎓 ourth-year student at UBC pursuing a combined major in Cognitive Systems & Design, blending technical and design expertise to create innovative user experiences.</li>
+                <li>🔍 Detail-oriented with hands-on experience in UI/UX, A/B testing, and cross-functional collaboration.</li>
+                <li>⚙️ Proficient in ML workflows, backend APIs, and building scalable systems.</li>
+                <li>🚀 Developed AI-powered tools, accessibility widgets, and data-driven web apps.</li>
+                <li>🌱 Always learning, currently exploring MLOps, advanced system design, and working on concept mapping</li>
               </ul>
             </div>
             {/* Right: Image */}

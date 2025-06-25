@@ -169,7 +169,6 @@ export default function Home() {
                 About Me
               </h2>
               <ul className="text-base sm:text-lg md:text-2xl text-white/100 mb-8 md:mb-20 space-y-4 font-sans text-left" style={{ fontFamily: "Inter, sans-serif" }}>
-              <li>🎓 <strong>Fourth-year student at UBC</strong> pursuing a combined major in Cognitive Systems & Design, blending technical and design expertise to create innovative user experiences.</li>
               <li>🎓 Fourth-year student at UBC pursuing a combined major in Cognitive Systems & Design, blending technical and design expertise to create innovative user experiences.</li>
   <li>💻 Full-stack developer with experience in React, Next.js, Node.js, and accessibility-first design.</li>
   <li>🔍 Detail-oriented with experience in UI/UX, A/B testing, and cross-functional collaboration.</li>

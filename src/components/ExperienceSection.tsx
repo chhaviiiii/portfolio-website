@@ -43,7 +43,7 @@ const experiences = [
     ]
   },
   {
-    title: "Software Engineer (Internship)",
+    title: "Software Engineer Intern",
     place: "TechyWeb Solutions",
     date: "Jan 2024 – Mar 2024",
     responsibilities: [

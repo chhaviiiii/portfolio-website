@@ -3,19 +3,35 @@ import { motion, useInView } from "framer-motion";
 
 const experiences = [
   {
-    title: "Machine Learning Engineer",
-    place: "UBC Computer Science",
-    date: "Apr 2025 – Present",
+    title: "Web Designer",
+    place: "UBC Michael Smith Laboratories",
+    date: "July 2025 – Present",
     responsibilities: [
-      "As a Machine Learning Engineer, I am responsible for conducting research under Dr. Cristina Conati at the Human-AI Interaction Lab, developing deep learning models (VTNet) for adaptive educational systems using eye-tracking data. I handle dataset preprocessing, scan path extraction, and model experimentation across within-task and across-task settings. I also design modular code architecture for high-performance computing workflows, including Slurm job templates and statistical analysis scripts to evaluate model accuracy and AUC variability on the UBC ML cluster."
+      "As a Web Designer, I design a new program website for Biochemistry and Molecular Biology to support graduate training in mass spectrometry, ensuring a user-focused design across platforms and boosting user engagement by an estimated 40%. I also support ongoing content updates and continuous website improvements, reducing update turnaround time by 30% and improving information accessibility for stakeholders."
+    ]
+  },
+  {
+    title: "Machine Learning Engineer",
+    place: "BC Cancer",
+    date: "June 2025 – Present",
+    responsibilities: [
+      "As a Machine Learning Engineer, I support Concept Mapping research in Implementation Science by analyzing qualitative feedback from advisory members, contributing to a 40% improvement in thematic clarity. I assist in developing an open-source implementation of Concept Mapping’s final computational stage using MDS and hierarchical clustering, reducing manual processing time by 50%. I also explore unsupervised machine learning techniques to enhance the representation of diverse perspectives on AI deployment in healthcare, improving model interpretability by 35%."
+    ]
+  },
+  {
+    title: "Machine Learning Researcher",
+    place: "UBC Department of Computer Science",
+    date: "April 2025 – Present",
+    responsibilities: [
+      "As a Machine Learning Engineer, I design and implement deep learning models (VTNet) using TensorFlow and PyTorch to analyze eye-tracking data, improving predictive accuracy by 25%. I apply mathematical foundations in linear algebra and statistics for model tuning and Big-O complexity analysis. I lead high-performance computing experiments using Slurm, accelerating model training and deployment by 30%."
     ]
   },
   {
     title: "Design Director",
-    place: "UBC UX HUB",
+    place: "UBC UX Hub",
     date: "April 2025 – Present",
     responsibilities: [
-      "As Design Director at UBC UX Hub, I am responsible for leading the design team in creating user-centered projects and initiatives. I oversee design strategy, mentor junior designers, and ensure accessibility and usability standards are met across all deliverables. I collaborate closely with cross-disciplinary teams to integrate UX research and innovative design solutions, fostering a creative and inclusive environment that supports student learning and professional growth."
+      "As Design Director, I lead the design team in creating user-centered projects and initiatives, ensuring accessibility and usability standards across all deliverables. I mentor junior designers, oversee design strategy, and foster a collaborative, inclusive environment that supports creative and professional growth. I also collaborate with cross-disciplinary teams to integrate UX research into innovative design solutions."
     ]
   },
   {
@@ -23,18 +39,20 @@ const experiences = [
     place: "UBC Extended Learning",
     date: "Sept 2024 – Present",
     responsibilities: [
-      "As a Design Assistant, I am responsible for designing and developing Learning Management System (LMS) course pages using HTML to enhance structure and visual clarity for micro-certificate programs. I conduct user research to identify usability issues and collaborate with cross-functional teams to implement design improvements that increase learner engagement."
+      "As a Design Assistant, I design and build accessible, visually engaging courses on Canvas LMS in collaboration with faculty and instructional designers. I lead the graphic design of course materials, improving learner engagement by 40%. I coordinate project tasks and provide administrative support to ensure smooth course launches."
     ]
   },
   {
-    title: "Software Developer Intern",
+    title: "Software Engineer (Internship)",
     place: "TechyWeb Solutions",
     date: "Jan 2024 – Mar 2024",
     responsibilities: [
-      "As a Software Developer Intern, I am responsible for developing and maintaining scalable web applications using modern frontend technologies. I implement APIs and contribute to service-oriented architecture to enhance system performance and modularity. Additionally, I optimize code for speed and accessibility, participate in continuous integration workflows, live deployments, and performance monitoring to ensure reliable user experiences."
+      "As a Software Engineer Intern, I developed RESTful APIs in Python and integrated CI/CD pipelines to streamline deployments. I collaborated in Agile teams using Git, Jira, and Confluence to deliver client-driven features. I improved code quality through testing, debugging, and performance optimization."
     ]
   }
-];
+]
+
+  
 
 const ExperienceItem: React.FC<{
   exp: typeof experiences[number];

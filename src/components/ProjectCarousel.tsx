@@ -40,7 +40,7 @@ const projects = [
     description:
       "UX researched website designed in Figma, coded in responsive HTML/CSS with SEO best practices and intuitive navigation.",
     tools: ["HTML", "CSS", "Figma", "SEO"],
-    link: "https://vancouverpizzahaven.ca"
+    link: "https://vancouverpizzaheaven.ca"
   },
   {
     image: "/vr.png",

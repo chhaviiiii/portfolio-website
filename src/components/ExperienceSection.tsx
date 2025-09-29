@@ -3,6 +3,15 @@ import { motion, useInView } from "framer-motion";
 
 const experiences = [
   {
+    title: "Automation Engineer",
+    place: "UBC Extended Learning",
+    date: "Sept 2025 – Present",
+    responsibilities: [
+      "As an Automation Engineer, I created a platform that automates CSV survey responses into structured PDF reports, cutting manual processing time by 70%. I also developed Google Apps Script workflows integrated with Sheets to send automated reminders and notifications, improving response rates by 25%. Additionally, I provide technical and administrative support to ensure seamless integration of automated workflows into ongoing course operations."
+    ]
+  },
+
+  {
     title: "Web Designer",
     place: "UBC Michael Smith Laboratories",
     date: "July 2025 – Present",
@@ -13,7 +22,7 @@ const experiences = [
   {
     title: "Machine Learning Engineer",
     place: "BC Cancer",
-    date: "June 2025 – Present",
+    date: "June 2025 – Dec 2025",
     responsibilities: [
       "As a Machine Learning Engineer, I support Concept Mapping research in Implementation Science by analyzing qualitative feedback from advisory members, contributing to a 40% improvement in thematic clarity. I assist in developing an open-source implementation of Concept Mapping’s final computational stage using MDS and hierarchical clustering, reducing manual processing time by 50%. I also explore unsupervised machine learning techniques to enhance the representation of diverse perspectives on AI deployment in healthcare, improving model interpretability by 35%."
     ]
@@ -21,7 +30,7 @@ const experiences = [
   {
     title: "Machine Learning Researcher",
     place: "UBC Department of Computer Science",
-    date: "April 2025 – Present",
+    date: "April 2025 – Aug 2025",
     responsibilities: [
       "As a Machine Learning Engineer, I design and implement deep learning models (VTNet) using TensorFlow and PyTorch to analyze eye-tracking data, improving predictive accuracy by 25%. I apply mathematical foundations in linear algebra and statistics for model tuning and Big-O complexity analysis. I lead high-performance computing experiments using Slurm, accelerating model training and deployment by 30%."
     ]
@@ -29,7 +38,7 @@ const experiences = [
   {
     title: "Design Director",
     place: "UBC UX Hub",
-    date: "April 2025 – Present",
+    date: "April 2025 – Sept 2025",
     responsibilities: [
       "As Design Director, I lead the design team in creating user-centered projects and initiatives, ensuring accessibility and usability standards across all deliverables. I mentor junior designers, oversee design strategy, and foster a collaborative, inclusive environment that supports creative and professional growth. I also collaborate with cross-disciplinary teams to integrate UX research into innovative design solutions."
     ]
@@ -37,7 +46,7 @@ const experiences = [
   {
     title: "Design Assistant",
     place: "UBC Extended Learning",
-    date: "Sept 2024 – Present",
+    date: "Sept 2024 – Apr 2025",
     responsibilities: [
       "As a Design Assistant, I design and build accessible, visually engaging courses on Canvas LMS in collaboration with faculty and instructional designers. I lead the graphic design of course materials, improving learner engagement by 40%. I coordinate project tasks and provide administrative support to ensure smooth course launches."
     ]

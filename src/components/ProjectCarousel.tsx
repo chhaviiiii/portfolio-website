@@ -3,6 +3,30 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    image: "/ci.png",
+    title: "CourseInsights",
+    description:
+    "CourseInsights is a web application that automates and visualizes course survey results. It processes CSV survey data into structured PDF reports and provides an accessible interface for instructors and administrators to track course performance and student engagement.",
+  tools: ["Python", "Flask", "HTML/CSS", "Pandas"],
+    link: "https://cpp-production-7774.up.railway.app/",
+  },
+  {
+    image: "/bcpm.png",
+    title: "BCPM Network",
+    description:
+     "BCPM Network is a professional community website for the BC Proteomics and Metabolomics Network. I designed and developed the site to showcase research, workshops, symposia, and resources, while aligning with the network’s branding and ensuring accessibility across devices.",
+  tools: ["Next.js", "Tailwind CSS", "Vercel"],
+    link: "https://www.bcpm-network.ca/",
+  },  
+  {
+    image: "/cpt.png",
+    title: "Concept Mapping Tool",
+    description:
+      "The Concept Mapping Tool is an open-source platform for analyzing and visualizing complex data in healthcare research. It supports qualitative feedback analysis, multidimensional scaling (MDS), and hierarchical clustering to uncover patterns and improve thematic clarity, reducing manual analysis by 50%.",
+    tools: ["Python", "FastAPI", "NetworkX", "Plotly"],
+    link: "https://github.com/chhaviiiii/concept_mapping"
+  },
+  {
     image: "/sb.png",
     title: "Your Search Box AI Powered Widget",
     description:

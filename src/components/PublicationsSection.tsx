@@ -61,15 +61,11 @@ const PublicationsSection: React.FC = () => {
             <p className="mt-4 text-sm leading-relaxed text-white/75 sm:text-base">
               {pub.authors}
             </p>
-            <p className="mt-2 font-medium text-pink-200/90">{pub.venue}</p>
+  
             <p className="mt-4 text-left text-base leading-relaxed text-white/85 sm:text-lg">
               {pub.description}
             </p>
-            {pub.preprintNote && (
-              <p className="mt-4 border-l-2 border-amber-400/50 pl-4 text-sm italic leading-relaxed text-white/55">
-                {pub.preprintNote}
-              </p>
-            )}
+
             <div className="mt-6 flex flex-wrap gap-3">
               <a
                 href={pub.href}

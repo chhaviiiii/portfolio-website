@@ -7,6 +7,7 @@ import StackSection from "../components/StackSection";
 import VerticalTextCarousel from "../components/VerticalTextCarousel";
 import ProjectCarousel from "../components/ProjectCarousel";
 import ExperienceSection from "../components/ExperienceSection";
+import PublicationsSection from "../components/PublicationsSection";
 import Footer from "@/components/Footer";
 import CDPlayer from "../components/CDPlayer";
 import PlasmaBackground from '@/components/PlasmaBackground';
@@ -213,6 +214,7 @@ export default function Home() {
               <span>More on Github</span>
             </a>
           </div>
+          <PublicationsSection />
           <section id="experience" className="w-full flex justify-center mt-4">
               {/* Experience content */}
           </section>

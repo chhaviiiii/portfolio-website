@@ -4,6 +4,7 @@ const navItems = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
+  { label: "Publications", href: "#publications" },
   { label: "Experience", href: "#experience" },
   { label: "Resume", href: "/chhavinayyar_resume.pdf", external: true },
 ];

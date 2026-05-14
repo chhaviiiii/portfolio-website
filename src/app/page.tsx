@@ -1,228 +1,121 @@
 "use client";
 
-import Navbar from "../components/Navbar";
-import TypeWriter from "../components/TypeWriter";
-import SplashScreen from "../components/SplashScreen";
-import StackSection from "../components/StackSection";
-import VerticalTextCarousel from "../components/VerticalTextCarousel";
-import ProjectCarousel from "../components/ProjectCarousel";
-import ExperienceSection from "../components/ExperienceSection";
-import PublicationsSection from "../components/PublicationsSection";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import Navbar from "@/components/Navbar";
+import StackSection from "@/components/StackSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import PublicationsSection from "@/components/PublicationsSection";
+import ExperienceSection from "@/components/ExperienceSection";
 import Footer from "@/components/Footer";
-import CDPlayer from "../components/CDPlayer";
-import PlasmaBackground from '@/components/PlasmaBackground';
+import CDPlayer from "@/components/CDPlayer";
 
-import { useState, useEffect, useRef } from "react";
+const fadeUp = {
+  initial: { opacity: 0, y: 16 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+};
 
 export default function Home() {
-  const [showSplash, setShowSplash] = useState(true);
-
-  const [stackInView, setStackInView] = useState(false);
-
-
-  const aboutSectionRef = useRef<HTMLDivElement | null>(null);
-  const imageRef = useRef<HTMLImageElement | null>(null);
-  const [imageInView, setImageInView] = useState(false);
-
-  const stackRef = useRef<HTMLDivElement | null>(null);
-
-
-  useEffect(() => {
-    const node = aboutSectionRef.current;
-    if (!node) return;
-
-    const observer = new window.IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          // Removed setShuffleStart since it's not defined and doesn't appear to be needed
-          // for the about section intersection observer
-        }
-      },
-      { threshold: 0.5 } // Adjust as needed
-    );
-
-    observer.observe(node);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-  useEffect(() => {
-    const node = imageRef.current;
-    if (!node) return;
-    const observer = new window.IntersectionObserver(
-      ([entry]) => setImageInView(entry.isIntersecting),
-      { threshold: 0.4 }
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const node = stackRef.current;
-    if (!node) return;
-    const observer = new window.IntersectionObserver(
-      ([entry]) => setStackInView(entry.isIntersecting),
-      { threshold: 0.2 }
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <>
-      {showSplash && (
-        <SplashScreen
-          onFinish={() => {
-            setShowSplash(false);
-            window.scrollTo({ top: 0, behavior: "auto" });
-          }}
-        />
-      )}
-      <div
-        className={`relative min-h-screen flex flex-col transition-colors duration-700 ${
-        showSplash ? "opacity-0 pointer-events-none" : "opacity-100"}`}
-        style={{
-          overflow: "hidden",
-        }}
-      >
-        <PlasmaBackground />
-        <div id="home" className= "relative z-10">
-          <Navbar />
-          <main className="flex-1 flex flex-col items-center justify-center text-center px-4">
-            <h1 className="text-center w-full justify-center text-2xl sm:text-5xl md:text-7xl font-bold mb-6">
-              <TypeWriter
-                text="CHHAVI NAYYAR"
-                speed={150}
-                className="text-white text-transparent hidden"
-              />
-            </h1>
-            <p className="text-lg sm:text-2xl max-w-2xl mb-8 text-black/80 dark:text-white/80">
-
-            </p>
-          </main>
-          <section 
-            ref={aboutSectionRef}
-            className="w-full flex justify-center mt-62 px-4 sm:px-8 md:px-20"
-          >
-            <div className="max-w-3xl w-full rounded-3xl p-1 text-center">
-              <h2
-                className="font-bold mb-6 text-white sm:text-2xl md:text-3xl min-h-[100px] sm:min-h-[120px] md:min-h-[150px]"
-                style={{
-                  fontFamily: "Inter, sans-serif",
-                  lineHeight: "100%",
-                  letterSpacing: 0,
-                  marginTop: -30,
-                }}
+      <Navbar />
+      <main id="main">
+        <section
+          id="hero"
+          aria-labelledby="hero-heading"
+          className="flex min-h-[100dvh] flex-col border-b border-rule pt-24 sm:pt-28"
+        >
+          <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-5 pb-20 sm:px-8 sm:pb-24 lg:px-10">
+            <motion.div {...fadeUp}>
+              <p className="text-sm font-medium uppercase tracking-[0.2em] text-ink-muted">
+                Fullstack Developer · UX Designer · ML Engineer
+              </p>
+              <h1
+                id="hero-heading"
+                className="mt-8 max-w-3xl font-serif text-4xl font-normal leading-tight tracking-tight text-ink sm:text-5xl md:text-6xl"
               >
-                <div className="w-full flex justify-center">
-                  <VerticalTextCarousel
-                    phrases={[
-                      "Fullstack Developer",
-                      "UX/ UI Designer",
-                      "ML Engineer",
-                      "Certified Yapper",
-                    ]}
-                    className="text-white bg-clip-text text-transparent"
-                  />
-                </div>
-              </h2>
-              <h3
-                className="text-xl sm:text-4xl md:text-4xl font-bold text-white mb-4"
-                style={{
-                  fontFamily: "Inter, sans-serif",
-                  fontWeight: 700,
-                  marginTop: 0,
-                }}
-              >
-                Hi, I&apos;m{" "}
-                <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-                  Chhavi
+                Hi, I&apos;m Chhavi{" "}
+                <span aria-hidden>
+                  🌙 ☀️
                 </span>
-                <span> 🌙</span>
-              </h3>
-              <p
-                className="text-base sm:text-xl md:text-3xl text-white/90 mb-8 lg:mb-10 mx-auto"
-                style={{
-                  fontFamily: "Inter, sans-serif",
-                }}
-              >
-                A creative full-stack developer and design-driven engineer passionate about building accessible, performant web experiences. I love combining clean code with thoughtful design to create interfaces that work beautifully for everyone.
+              </h1>
+              <p className="mt-8 max-w-xl text-lg leading-relaxed text-ink-muted sm:text-xl">
+                Fourth-year at UBC in Cognitive Systems and Design, building
+                accessible interfaces with React and Next.js, and shipping ML-backed
+                workflows where research meets product.
               </p>
               <a
                 href="https://www.linkedin.com/in/cnayyar/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-10 sm:mt-20 px-4 py-2 text-base sm:px-6 sm:py-3 sm:text-lg md:px-10 md:py-4 md:text-lg rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold shadow-lg hover:scale-110 transition-transform flex items-center gap-3 mx-auto"
+                className="mt-12 inline-flex border border-ink px-6 py-3 text-sm font-semibold uppercase tracking-wider text-ink transition-colors hover:border-accent hover:text-accent"
               >
-                <span>Let&apos;s Connect!</span>
+                LinkedIn
               </a>
-            </div>
-          </section>
-         
-          <section
-            id="about"
-            className="w-full flex flex-col md:flex-row justify-center items-center md:items-start mt-52 md:mt-150 px-4 sm:px-8 md:px-20 relative z-20"
-          >
-            <div className="w-full md:w-1/2 flex-1 mb-8 md:mb-0">
-              <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent mb-6 text-left">
-                About Me
-              </h2>
-              <ul className="text-base sm:text-lg md:text-2xl text-white/100 mb-8 md:mb-20 space-y-4 font-sans text-left" style={{ fontFamily: "Inter, sans-serif" }}>
-              <li>🎓 Fourth-year student at UBC pursuing a combined major in Cognitive Systems & Design, blending technical and design expertise to create innovative user experiences.</li>
-  <li>💻 Full-stack developer with experience in React, Next.js, Node.js, and accessibility-first design.</li>
-  <li>🔍 Detail-oriented with experience in UI/UX, A/B testing, and cross-functional collaboration.</li>
-  <li>⚙️ Familiar with ML workflows, backend APIs, and building scalable systems.</li>
-  <li>🚀 Worked on AI-powered tools, accessibility widgets, and data-driven web apps.</li>
-  <li>🌱 Always learning, currently exploring MLOps and advanced system design.</li>
-              </ul>
-            </div>
-            {/* Right: Image */}
-            <div className="w-full md:w-1/2 flex justify-center md:justify-end relative z-20">
-              <img
-                ref={imageRef}
-                src="/self.png"
-                alt="Chhavi Nayyar"
-                className={`object-cover rounded-2xl shadow-lg border-4 border-pink-400 transition-all duration-1000 w-full max-w-xs sm:max-w-md md:max-w-lg max-h-[60vh] ${
-                  imageInView ? "opacity-100 scale-100" : "opacity-0 scale-75"
-                }`}
-                style={{ position: 'relative', zIndex: 20 }}
-              />
-            </div>
-          </section>
-          
-          <section
-            id="stack"
-            className={`w-full flex  justify-center px-0 mt-12 transition-all duration-700 ${stackInView ? "opacity-100" : "opacity-100"}`}
-          >
-            <StackSection />
-          </section>
-          
-          <section id="projects" className="w-full flex justify-center mt-70">
-              {/* Projects content */}
-              
-          </section>
-          <ProjectCarousel />
-          <div className="w-full flex justify-center mt-10 sm:mt-20">
-            <a
-              href="https://github.com/chhaviiiii"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 text-base sm:px-6 sm:py-3 sm:text-lg md:px-10 md:py-4 md:text-lg rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold shadow-lg hover:scale-110 transition-transform flex items-center gap-3"
-            >
-              <span>More on Github</span>
-            </a>
+            </motion.div>
           </div>
-          <PublicationsSection />
-          <section id="experience" className="w-full flex justify-center mt-4">
-              {/* Experience content */}
-          </section>
-          <ExperienceSection />
-        </div>
-      </div>
-      <CDPlayer />
+        </section>
+
+        <section
+          id="about"
+          aria-labelledby="about-heading"
+          className="scroll-mt-28 border-b border-rule bg-paper py-24 sm:py-32 lg:scroll-mt-32"
+        >
+          <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-12 px-5 sm:px-8 md:grid-cols-2 md:gap-16 lg:gap-24 lg:px-10">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <h2
+                id="about-heading"
+                className="font-serif text-4xl font-medium tracking-tight text-ink sm:text-5xl"
+              >
+                About
+              </h2>
+              <div className="mt-8 space-y-6 text-base leading-[1.75] text-ink-muted sm:text-lg">
+                <p>
+                  I work across the stack and the design process: from IA and
+                  prototypes in Figma to production TypeScript, Node services, and
+                  data-heavy Python tooling. I care about WCAG-minded defaults,
+                  readable code, and systems that still make sense six months later.
+                </p>
+                <p>
+                  Recently that has meant course-automation platforms, open-source
+                  concept-mapping software for health research, client sites in
+                  Next.js and Framer, and ML engineering around qualitative and
+                  eye-tracking datasets, including BC Cancer and UBC CS collaborations.
+                </p>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.45, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
+              className="relative aspect-[4/5] w-full max-w-md justify-self-center border border-rule bg-card md:max-w-none md:justify-self-end"
+            >
+              <Image
+                src="/self.png"
+                alt="Portrait of Chhavi Nayyar"
+                fill
+                className="object-cover"
+                sizes="(max-width:768px) 100vw, 40vw"
+                priority
+              />
+            </motion.div>
+          </div>
+        </section>
+
+        <StackSection />
+        <ProjectsSection />
+        <PublicationsSection />
+        <ExperienceSection />
+      </main>
       <Footer />
+      <CDPlayer />
     </>
   );
 }

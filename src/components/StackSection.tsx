@@ -1,93 +1,114 @@
 "use client";
+
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
-const stackCategories = {
-  frontend: [
-    { name: "React", icon: "/react.svg" },
-    { name: "Next.js", icon: "/next.svg" },
-    { name: "Angular", icon: "/angular.svg" },
-    { name: "HTML", icon: "/html.svg" },
-    { name: "JS", icon: "/js.svg" },
-    { name: "Typescript", icon: "/typescript.svg" },
-    { name: "Tailwind-CSS", icon: "/tailwind.svg" },
-  ],
-  backend: [
-    { name: "Node.js", icon: "/node.svg" },
-    { name: "Python", icon: "/python.svg" },
-    { name: "MongoDB", icon: "/mongo.svg" },
-    { name: "MySQL", icon: "/sql.svg" },
-    { name: "C++", icon: "/c++.svg" },
-    { name: "Pytorch", icon: "/pytorch.svg" },
-  ],
-  tools: [
-    { name: "Git", icon: "/git.svg" },
-    { name: "Github", icon: "/github.svg" },
-    { name: "VSCode", icon: "/vscode.svg" },
-    { name: "Linux", icon: "/linux.svg" },
-    { name: "Bash", icon: "/bash.svg" },
-    { name: "JSON", icon: "/json.svg" },
-  ],
-  design: [
-    { name: "Figma", icon: "/figma.svg" },
-    { name: "Adobe", icon: "/adobe.svg" },
-    { name: "Invision", icon: "/invision.svg" },
-  ],
+const fadeUp = {
+  initial: { opacity: 0, y: 16 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
+  transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
 };
 
-const StackSection: React.FC = () => (
-  <section className="w-full mx-auto">
-    <div className="mx-auto mt-20">
-      <motion.h2 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ amount: 0.3 }}
-        transition={{ duration: 0.5 }}
-        className="text-3xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-white to-pink-500 bg-clip-text text-transparent mb-6 sm:mb-10 text-left pl-4 sm:pl-8 md:pl-20"
-      >
-        Tech Stack
-      </motion.h2>
-      <div className="pl-4 sm:pl-8 md:pl-20">
-        {Object.entries(stackCategories).map(([category, items]) => (
-          <div key={category} className="mb-12">
-            <motion.h3
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ amount: 0.3 }}
-              transition={{ duration: 0.5 }}
-              className="text-2xl sm:text-3xl font-bold text-white mb-6 capitalize"
-            >
-              {category}
-            </motion.h3>
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 justify-items-center">
-              {items.map((tech, index) => (
-                <motion.div
-                  key={tech.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ amount: 0.3 }}
-                  transition={{ 
-                    duration: 0.5,
-                    delay: index * 0.05
-                  }}
-                  className="relative bg-[#23234f]/50 rounded-xl p-3 shadow-lg flex flex-col items-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(169,46,163,0.5)] hover:border hover:border-[#A92EA3] w-[100px] h-[100px]"
-                >
-                  <div className="w-14 h-14 flex items-center justify-center">
-                    <img
-                      src={tech.icon}
-                      alt={tech.name}
-                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_16px_rgba(0,225,120,0.5)]"
-                    />
-                  </div>
-                  <span className="mt-1 text-xs text-white text-opacity-80 text-center line-clamp-1 w-full">{tech.name}</span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
+const categories = [
+  {
+    label: "Frontend",
+    items: [
+      { name: "React", icon: "/react.svg" },
+      { name: "Next.js", icon: "/next.svg" },
+      { name: "Angular", icon: "/angular.svg" },
+      { name: "HTML", icon: "/html.svg" },
+      { name: "JavaScript", icon: "/js.svg" },
+      { name: "TypeScript", icon: "/typescript.svg" },
+      { name: "Tailwind CSS", icon: "/tailwind.svg" },
+    ],
+  },
+  {
+    label: "Backend & data",
+    items: [
+      { name: "Node.js", icon: "/node.svg" },
+      { name: "Python", icon: "/python.svg" },
+      { name: "MongoDB", icon: "/mongo.svg" },
+      { name: "MySQL", icon: "/sql.svg" },
+      { name: "C++", icon: "/c++.svg" },
+      { name: "PyTorch", icon: "/pytorch.svg" },
+    ],
+  },
+  {
+    label: "Tools",
+    items: [
+      { name: "Git", icon: "/git.svg" },
+      { name: "GitHub", icon: "/github.svg" },
+      { name: "VS Code", icon: "/vscode.svg" },
+      { name: "Linux", icon: "/linux.svg" },
+      { name: "Bash", icon: "/bash.svg" },
+      { name: "JSON", icon: "/json.svg" },
+    ],
+  },
+  {
+    label: "Design",
+    items: [
+      { name: "Figma", icon: "/figma.svg" },
+      { name: "Adobe", icon: "/adobe.svg" },
+      { name: "InVision", icon: "/invision.svg" },
+      { name: "Framer", icon: "/framer.svg" },
+    ],
+  },
+];
 
-export default StackSection;
+export default function StackSection() {
+  return (
+    <section
+      id="stack"
+      className="scroll-mt-28 border-t border-rule bg-paper py-24 sm:py-32 lg:scroll-mt-32"
+      aria-labelledby="stack-heading"
+    >
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
+        <motion.h2
+          id="stack-heading"
+          {...fadeUp}
+          className="font-serif text-4xl font-medium tracking-tight text-ink sm:text-5xl"
+        >
+          Stack
+        </motion.h2>
+        <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-muted">
+          Technologies and tools used in production and coursework.
+        </p>
+
+        <div className="mt-16 grid grid-cols-1 gap-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
+          {categories.map((cat) => (
+            <motion.div key={cat.label} {...fadeUp}>
+              <h3 className="border-b border-rule pb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">
+                {cat.label}
+              </h3>
+              <ul className="mt-6 space-y-1">
+                {cat.items.map((tech) => (
+                  <li key={tech.name}>
+                    <button
+                      type="button"
+                      className="group flex w-full cursor-default items-center gap-3 rounded-md border border-transparent px-2 py-2 text-left -mx-2 transition-[border-color,background-color,transform] duration-200 hover:-translate-y-px hover:border-rule hover:bg-card focus-visible:-translate-y-px focus-visible:border-rule focus-visible:bg-card focus-visible:outline-none"
+                    >
+                      <span className="relative flex h-8 w-8 shrink-0 items-center justify-center transition-transform duration-200 group-hover:scale-110">
+                        <Image
+                          src={tech.icon}
+                          alt=""
+                          width={32}
+                          height={32}
+                          className="object-contain opacity-90 transition-opacity group-hover:opacity-100"
+                        />
+                      </span>
+                      <span className="text-sm font-medium text-ink transition-colors group-hover:text-accent">
+                        {tech.name}
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,16 +1,23 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { DM_Sans, Fraunces } from "next/font/google";
 import "./globals.css";
 
-const roboto = Roboto({
-  subsets: ['latin'],
-  weight: ['100', '300', '400', '500', '700', '900'],
-  variable: '--font-roboto',
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Chhavi Nayyar",
-  description: "Portfolio",
+  description:
+    "Fullstack developer, UX designer, and ML engineer. Portfolio of work and experience.",
 };
 
 export default function RootLayout({
@@ -19,12 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark ${roboto.variable}`}>
-      <head>
-        <title>Chhavi Nayyar | Portfolio</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className="font-roboto">{children}</body>
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${dmSans.variable}`}
+    >
+      <body className="min-h-screen bg-paper font-sans text-ink antialiased">
+        {children}
+      </body>
     </html>
   );
 }

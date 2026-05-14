@@ -1,34 +1,48 @@
+"use client";
+
 import { useRef, useState } from "react";
+import Image from "next/image";
 
 export default function CDPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
 
-  const handleToggle = () => {
-    if (!audioRef.current) return;
+  const toggle = () => {
+    const el = audioRef.current;
+    if (!el) return;
     if (playing) {
-      audioRef.current.pause();
+      el.pause();
+      setPlaying(false);
     } else {
-      audioRef.current.play();
+      void el
+        .play()
+        .then(() => setPlaying(true))
+        .catch(() => setPlaying(false));
     }
-    setPlaying(!playing);
   };
 
   return (
-    <div
-      className="fixed bottom-6 right-6 z-50 cursor-pointer"
-      onClick={handleToggle}
-      title={playing ? "Pause music" : "Play music"}
-    >
-      <div className="relative w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-[#A92EA3] hover:border-pink-500 transition-colors shadow-lg hover:shadow-[0_0_20px_rgba(169,46,163,0.5)]">
-        <img
+    <div className="group fixed bottom-5 right-5 z-[90] flex flex-col items-end gap-2">
+      <p className="pointer-events-none max-w-[12rem] text-right text-xs leading-snug text-ink-muted opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+        Website soundtrack
+      </p>
+      <button
+        type="button"
+        onClick={toggle}
+        aria-pressed={playing}
+        aria-label={playing ? "Pause website music" : "Play website music"}
+        className="relative h-14 w-14 overflow-hidden rounded-md border border-rule bg-card shadow-sm transition-colors hover:border-accent/40"
+      >
+        <Image
           src={playing ? "/music1.gif" : "/still.png"}
-          alt="Music Player"
-          className="w-full h-full object-cover"
+          alt=""
+          fill
+          className="object-cover"
+          sizes="56px"
+          unoptimized
         />
-      </div>
-      <audio ref={audioRef} src="/website-music.mp3" loop />
+      </button>
+      <audio ref={audioRef} src="/website-music.mp3" loop preload="none" />
     </div>
   );
 }
-  

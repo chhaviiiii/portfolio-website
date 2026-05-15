@@ -4,7 +4,16 @@ import { useCallback, useEffect, useState } from "react";
 
 const STORAGE_KEY = "theme";
 
-export default function ThemeToggle() {
+/** Shared with mobile Menu so control sizes stay aligned. */
+export const headerControlButtonClass =
+  "inline-flex h-9 items-center justify-center rounded border border-rule px-3 text-xs font-semibold leading-none tracking-wide text-ink transition-colors hover:border-accent hover:text-accent";
+
+type ThemeToggleProps = {
+  /** Extra classes (e.g. min-width for the mobile header pair). */
+  className?: string;
+};
+
+export default function ThemeToggle({ className = "" }: ThemeToggleProps) {
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
@@ -29,7 +38,7 @@ export default function ThemeToggle() {
       onClick={toggle}
       aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
       aria-pressed={dark}
-      className="rounded border border-rule px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-ink transition-colors hover:border-accent hover:text-accent"
+      className={`${headerControlButtonClass} ${className}`.trim()}
     >
       {dark ? "Light" : "Dark"}
     </button>

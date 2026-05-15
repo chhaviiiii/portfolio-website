@@ -73,7 +73,7 @@ export default function StackSection() {
           Stack
         </motion.h2>
         <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-muted">
-          Technologies and tools used in production and coursework.
+          Technologies and tools used in production and research.
         </p>
 
         <div className="mt-16 grid grid-cols-1 gap-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
@@ -82,12 +82,12 @@ export default function StackSection() {
               <h3 className="border-b border-rule pb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">
                 {cat.label}
               </h3>
-              <ul className="mt-6 space-y-1">
+              <ul className="mt-6 grid grid-cols-3 gap-x-1 gap-y-2 md:flex md:flex-col md:gap-0 md:space-y-1">
                 {cat.items.map((tech) => (
-                  <li key={tech.name}>
+                  <li key={tech.name} className="min-w-0">
                     <button
                       type="button"
-                      className="group flex w-full cursor-default items-center gap-3 rounded-md border border-transparent px-2 py-2 text-left -mx-2 transition-[border-color,background-color,transform] duration-200 hover:-translate-y-px hover:border-rule hover:bg-card focus-visible:-translate-y-px focus-visible:border-rule focus-visible:bg-card focus-visible:outline-none"
+                      className="group flex h-full w-full flex-col items-center gap-1.5 rounded-md border border-transparent px-1 py-2 text-center transition-[border-color,background-color,transform] duration-200 hover:-translate-y-px hover:border-rule hover:bg-card focus-visible:-translate-y-px focus-visible:border-rule focus-visible:bg-card focus-visible:outline-none md:-mx-2 md:flex-row md:gap-3 md:px-2 md:py-2 md:text-left"
                     >
                       <span className="relative flex h-8 w-8 shrink-0 items-center justify-center transition-transform duration-200 group-hover:scale-110">
                         <Image
@@ -98,7 +98,7 @@ export default function StackSection() {
                           className="object-contain opacity-90 transition-opacity group-hover:opacity-100"
                         />
                       </span>
-                      <span className="text-sm font-medium text-ink transition-colors group-hover:text-accent">
+                      <span className="line-clamp-2 text-[11px] font-medium leading-tight text-ink transition-colors group-hover:text-accent md:line-clamp-none md:text-sm">
                         {tech.name}
                       </span>
                     </button>

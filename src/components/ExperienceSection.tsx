@@ -101,23 +101,23 @@ export default function ExperienceSection() {
               }}
               className="border-t border-rule first:border-t-0"
             >
-              <div className="grid gap-6 py-10 md:grid-cols-[1fr_auto] md:items-start md:gap-12">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">
-                    {exp.role}
-                  </p>
-                  <p className="mt-2 font-serif text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+              <div className="py-10">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">
+                  {exp.role}
+                </p>
+                <div className="mt-2 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <p className="min-w-0 font-serif text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
                     {exp.company}
                   </p>
-                  {exp.detail ? (
-                    <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-muted">
-                      {exp.detail}
-                    </p>
-                  ) : null}
+                  <p className="shrink-0 text-sm tabular-nums text-ink-muted">
+                    {exp.date}
+                  </p>
                 </div>
-                <p className="text-sm tabular-nums text-ink-muted md:pt-1 md:text-right">
-                  {exp.date}
-                </p>
+                {exp.detail ? (
+                  <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-muted">
+                    {exp.detail}
+                  </p>
+                ) : null}
               </div>
             </motion.li>
           ))}

@@ -29,7 +29,7 @@ export default function PublicationsSection() {
       className="scroll-mt-28 border-t border-rule bg-paper py-24 sm:py-32 lg:scroll-mt-32"
       aria-labelledby="publications-heading"
     >
-      <div className="mx-auto max-w-3xl px-5 sm:px-8 lg:px-10">
+      <div className="mx-auto max-w-3xl px-5 max-sm:pr-[5.5rem] sm:px-8 lg:px-10">
         <motion.h2
           id="publications-heading"
           {...fadeUp}

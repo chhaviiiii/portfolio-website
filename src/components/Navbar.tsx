@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useCallback } from "react";
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle, { headerControlButtonClass } from "./ThemeToggle";
 
 const SECTION_IDS = [
   "hero",
@@ -102,10 +102,10 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <ThemeToggle />
+          <ThemeToggle className="min-w-[4.75rem] shrink-0" />
           <button
             type="button"
-            className="rounded border border-rule px-3 py-2 text-sm font-medium text-ink"
+            className={`${headerControlButtonClass} min-w-[4.75rem] shrink-0`}
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
             onClick={() => setMenuOpen((o) => !o)}

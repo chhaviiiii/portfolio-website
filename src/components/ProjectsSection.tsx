@@ -89,7 +89,9 @@ function ProjectCard({
         </h3>
         <p
           className={`mt-2 flex-1 leading-relaxed text-ink-muted transition-colors group-hover:text-ink ${
-            featured ? "text-sm sm:text-base" : "text-sm"
+            featured
+              ? "text-[13px] leading-relaxed sm:text-sm md:text-base"
+              : "text-[13px] sm:text-sm"
           }`}
         >
           {project.summary}

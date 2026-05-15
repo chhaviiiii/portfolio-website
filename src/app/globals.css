@@ -4,20 +4,35 @@
   --paper: #f9f7f4;
   --ink: #1a1a1a;
   --ink-muted: #4a4a4a;
-  --accent: #9d2454;
-  --accent-hover: #7a1c42;
+  --accent: #952470;
+  --accent-hover: #7a1d5c;
   --rule: rgba(26, 26, 26, 0.12);
   --card: #ffffff;
+  --hero-split-base: #f5f2ed;
+  --hero-split-accent: #952470;
 }
 
 .dark {
   --paper: #121212;
   --ink: #f2f0ed;
   --ink-muted: #a3a09c;
-  --accent: #e85d94;
-  --accent-hover: #f28bb0;
+  --accent: #952470;
+  --accent-hover: #b8358f;
   --rule: rgba(242, 240, 237, 0.12);
   --card: #1a1a1a;
+  --hero-split-base: #000000;
+}
+
+#hero {
+  --hero-fg: var(--ink);
+  --hero-fg-muted: var(--ink-muted);
+  --hero-fg-on-accent: #f5f2ed;
+}
+
+.dark #hero {
+  --hero-fg: #ffffff;
+  --hero-fg-muted: rgba(255, 255, 255, 0.72);
+  --hero-fg-on-accent: #ffffff;
 }
 
 @theme inline {
@@ -40,6 +55,33 @@ body {
   background-color: var(--paper);
   color: var(--ink);
   font-family: var(--font-sans);
+  /* Native CSS cursor: no JS, no lag */
+  cursor: url("/sun-cursor.svg") 16 16, auto;
+}
+
+a,
+button,
+[role="button"],
+summary,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="checkbox"],
+input[type="radio"],
+label[for] {
+  cursor: url("/sun-cursor.svg") 16 16, pointer;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+textarea,
+[contenteditable="true"] {
+  cursor: text;
 }
 
 ::selection {
@@ -53,4 +95,53 @@ body {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
+}
+
+/* Cursor-driven split — bg stop uses +1px overlap to avoid subpixel seam */
+.heroSplitBackground {
+  background: linear-gradient(
+    to right,
+    var(--hero-split-accent) 0,
+    var(--hero-split-accent) var(--hero-split-bg-x-px, 0px),
+    var(--hero-split-base) var(--hero-split-bg-x-px, 0px),
+    var(--hero-split-base) 100%
+  );
+}
+
+/* Accent text: left of split only (hidden when x is 0) */
+.heroSplitAccentClip {
+  clip-path: inset(
+    0 calc(100% - var(--hero-split-x-px, 0px)) 0 0
+  );
+}
+
+/* Base text: right of split only — prevents double-layer ghosting at the seam */
+.heroSplitBaseClip {
+  clip-path: inset(0 0 0 var(--hero-split-x-px, 0px));
+}
+
+#hero[data-split-active="false"] .heroSplitAccentClip {
+  visibility: hidden;
+}
+
+.heroSplitAccentClip,
+.heroSplitBaseClip {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.heroSplitDot {
+  position: absolute;
+  z-index: 30;
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  left: var(--hero-split-cursor-x-px, 0px);
+  top: var(--hero-split-cursor-y-px, 50%);
+  background: var(--hero-split-dot-color, var(--hero-split-accent));
+  opacity: var(--hero-split-dot-opacity, 0);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  will-change: left, top, opacity, background-color;
 }

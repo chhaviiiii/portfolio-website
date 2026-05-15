@@ -120,7 +120,7 @@ export default function Home() {
             >
               <Image
                 src="/about.png"
-                alt="Portrait of Chhavi Nayyar smiling in a car"
+                alt="Portrait of Chhavi Nayyar in professional attire"
                 fill
                 className="object-cover object-center"
                 sizes="(max-width:768px) 100vw, 40vw"

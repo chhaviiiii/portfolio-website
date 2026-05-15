@@ -94,3 +94,21 @@ textarea,
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0% at var(--click-x) var(--click-y));
+  }
+  to {
+    clip-path: circle(150% at var(--click-x) var(--click-y));
+  }
+}
+
+::view-transition-new(root) {
+  animation: theme-reveal 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+::view-transition-old(root) {
+  animation: none;
+  z-index: -1;
+}

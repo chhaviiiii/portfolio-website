@@ -14,21 +14,28 @@ const experiences = [
   {
     role: "Software Engineer Intern",
     company: "Mastercard",
-    date: "Jan 2026 to Present",
+    date: "May 2026 to Present",
     detail:
       "Decision Intelligence on the Decision Management Platform software engineering team, building fraud detection ML models.",
   },
   {
+    role: "Teaching Assistant",
+    company: "UBC Computer Science & Cognitive Science",
+    date: "Jan 2026 to Apr 2026",
+    detail:
+      "Graduate TA for Human-Centered AI (CPSC 532C/554C); undergraduate instruction and labs for COGS 300 and COGS 303.",
+  },
+  {
     role: "Automation Engineer",
     company: "UBC Extended Learning",
-    date: "Sept 2025 to Present",
+    date: "Sept 2025 to Apr 2026",
     detail:
       "Automated CSV survey workflows into structured PDF reports (~70% less manual work). Google Apps Script integrations for reminders and notifications; technical support for course operations.",
   },
   {
     role: "Web Designer",
     company: "UBC Michael Smith Laboratories",
-    date: "July 2025 to Present",
+    date: "July 2025 to Apr 2026",
     detail:
       "Graduate program site for Biochemistry and Molecular Biology / mass spectrometry training: user-focused IA, ongoing content and accessibility improvements.",
   },
@@ -102,20 +109,20 @@ export default function ExperienceSection() {
               }}
               className="border-t border-rule first:border-t-0"
             >
-              <div className="py-10">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
+              <div className="group -mx-2 rounded-md border border-transparent px-2 py-10 transition-[border-color,background-color,box-shadow,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-accent hover:bg-card hover:shadow-md sm:-mx-3 sm:px-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-text-muted transition-colors duration-200 group-hover:text-accent">
                   {exp.role}
                 </p>
                 <div className="mt-2 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <p className="min-w-0 font-serif text-2xl font-semibold tracking-tight text-text sm:text-3xl">
+                  <p className="min-w-0 font-serif text-2xl font-semibold tracking-tight text-text transition-colors duration-200 group-hover:text-accent sm:text-3xl">
                     {exp.company}
                   </p>
-                  <p className="shrink-0 text-sm tabular-nums text-text-muted">
+                  <p className="shrink-0 text-sm tabular-nums text-text-muted transition-colors duration-200 group-hover:text-accent">
                     {exp.date}
                   </p>
                 </div>
                 {exp.detail ? (
-                  <p className="mt-5 max-w-2xl text-base leading-relaxed text-text-muted">
+                  <p className="mt-5 max-w-2xl text-base leading-relaxed text-text-muted transition-colors duration-200 group-hover:text-text">
                     {exp.detail}
                   </p>
                 ) : null}

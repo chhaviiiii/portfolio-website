@@ -23,19 +23,42 @@ export default function ThemeToggle({ className = "" }: ThemeToggleProps) {
     document.documentElement.classList.toggle("dark", isDark);
   }, []);
 
-  const toggle = useCallback(() => {
-    setDark((prev) => {
-      const next = !prev;
-      document.documentElement.classList.toggle("dark", next);
-      localStorage.setItem(STORAGE_KEY, next ? "dark" : "light");
-      return next;
-    });
+  const applyTheme = useCallback((nextDark: boolean) => {
+    document.documentElement.classList.toggle("dark", nextDark);
+    localStorage.setItem(STORAGE_KEY, nextDark ? "dark" : "light");
+    setDark(nextDark);
   }, []);
+
+  const handleClick = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      const nextDark = !dark;
+
+      const rect = e.currentTarget.getBoundingClientRect();
+      document.documentElement.style.setProperty(
+        "--click-x",
+        `${rect.left + rect.width / 2}px`
+      );
+      document.documentElement.style.setProperty(
+        "--click-y",
+        `${rect.top + rect.height / 2}px`
+      );
+
+      if (!document.startViewTransition) {
+        applyTheme(nextDark);
+        return;
+      }
+
+      document.startViewTransition(() => {
+        applyTheme(nextDark);
+      });
+    },
+    [dark, applyTheme]
+  );
 
   return (
     <button
       type="button"
-      onClick={toggle}
+      onClick={handleClick}
       aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
       aria-pressed={dark}
       className={`${headerControlButtonClass} ${className}`.trim()}

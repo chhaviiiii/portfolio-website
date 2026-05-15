@@ -26,14 +26,14 @@ export default function PublicationsSection() {
   return (
     <section
       id="publications"
-      className="scroll-mt-28 border-t border-rule bg-paper py-24 sm:py-32 lg:scroll-mt-32"
+      className="scroll-mt-28 border-t border-rule bg-bg py-24 sm:py-32 lg:scroll-mt-32"
       aria-labelledby="publications-heading"
     >
       <div className="mx-auto max-w-3xl px-5 max-sm:pr-[5.5rem] sm:px-8 lg:px-10">
         <motion.h2
           id="publications-heading"
           {...fadeUp}
-          className="font-serif text-4xl font-medium tracking-tight text-ink sm:text-5xl"
+          className="font-serif text-4xl font-medium tracking-tight text-text sm:text-5xl"
         >
           Publications
         </motion.h2>
@@ -42,22 +42,22 @@ export default function PublicationsSection() {
           {...fadeUp}
           className="mt-14 border-l-2 border-accent pl-6 sm:pl-8"
         >
-          <h3 className="font-serif text-2xl font-normal leading-snug tracking-tight text-ink sm:text-3xl">
+          <h3 className="font-serif text-2xl font-normal leading-snug tracking-tight text-text sm:text-3xl">
             {publication.title}
-            <span className="mt-2 block text-xl text-ink-muted sm:text-2xl">
+            <span className="mt-2 block text-xl text-text-muted sm:text-2xl">
               {publication.subtitle}
             </span>
           </h3>
 
-          <p className="mt-8 text-xs font-medium uppercase tracking-[0.22em] text-ink-muted leading-relaxed">
+          <p className="mt-8 text-xs font-medium uppercase tracking-[0.22em] text-text-muted leading-relaxed">
             {publication.authors}
           </p>
 
-          <p className="mt-8 text-base leading-[1.75] text-ink-muted sm:text-lg">
+          <p className="mt-8 text-base leading-[1.75] text-text-muted sm:text-lg">
             {publication.abstract}
           </p>
 
-          <p className="mt-10 text-sm text-ink">
+          <p className="mt-10 text-sm text-text">
             <span className="font-semibold uppercase tracking-wider">DOI</span>
             <a
               href={publication.doi}
@@ -68,7 +68,7 @@ export default function PublicationsSection() {
               {publication.doiLabel}
             </a>
           </p>
-          <p className="mt-4 text-xs leading-relaxed text-ink-muted">
+          <p className="mt-4 text-xs leading-relaxed text-text-muted">
             Preprint: not yet certified by peer review. Findings should not guide
             clinical practice until formally evaluated.
           </p>

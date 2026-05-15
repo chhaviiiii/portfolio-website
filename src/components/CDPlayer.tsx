@@ -23,7 +23,7 @@ export default function CDPlayer() {
 
   return (
     <div className="group fixed bottom-5 right-5 z-[90] flex flex-col items-end gap-2">
-      <p className="pointer-events-none max-w-[12rem] text-right text-xs leading-snug text-ink-muted opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+      <p className="pointer-events-none max-w-[12rem] text-right text-xs leading-snug text-text-muted opacity-0 transition-opacity duration-200 group-hover:opacity-100">
         Website soundtrack
       </p>
       <button

@@ -6,7 +6,7 @@ const STORAGE_KEY = "theme";
 
 /** Shared with mobile Menu so control sizes stay aligned. */
 export const headerControlButtonClass =
-  "inline-flex h-9 items-center justify-center rounded border border-rule px-3 text-xs font-semibold leading-none tracking-wide text-ink transition-colors hover:border-accent hover:text-accent";
+  "inline-flex h-9 items-center justify-center rounded border border-rule px-3 text-xs font-semibold leading-none tracking-wide text-text transition-colors hover:border-accent hover:text-accent";
 
 type ThemeToggleProps = {
   /** Extra classes (e.g. min-width for the mobile header pair). */

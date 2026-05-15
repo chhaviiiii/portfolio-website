@@ -75,20 +75,20 @@ function ProjectCard({
         href={project.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex min-h-0 flex-1 flex-col rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper dark:focus-visible:ring-offset-paper"
+        className="flex min-h-0 flex-1 flex-col rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg dark:focus-visible:ring-offset-bg"
       >
-        <span className="font-mono text-xs tabular-nums text-ink-muted transition-colors group-hover:text-accent">
+        <span className="font-mono text-xs tabular-nums text-text-muted transition-colors group-hover:text-accent">
           {indexLabel}
         </span>
         <h3
-          className={`mt-3 font-serif font-medium tracking-tight text-ink transition-colors group-hover:text-accent ${
+          className={`mt-3 font-serif font-medium tracking-tight text-text transition-colors group-hover:text-accent ${
             featured ? "text-xl sm:text-2xl" : "text-lg sm:text-xl"
           }`}
         >
           {project.title}
         </h3>
         <p
-          className={`mt-2 flex-1 leading-relaxed text-ink-muted transition-colors group-hover:text-ink ${
+          className={`mt-2 flex-1 leading-relaxed text-text-muted transition-colors group-hover:text-text ${
             featured
               ? "text-[13px] leading-relaxed sm:text-sm md:text-base"
               : "text-[13px] sm:text-sm"
@@ -100,7 +100,7 @@ function ProjectCard({
           {project.tools.map((t) => (
             <li
               key={t}
-              className="border border-rule px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-ink-muted transition-[border-color,color] duration-200 group-hover:border-accent/35 group-hover:text-ink"
+              className="border border-rule px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-text-muted transition-[border-color,color] duration-200 group-hover:border-accent/35 group-hover:text-text"
             >
               {t}
             </li>
@@ -132,19 +132,19 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="scroll-mt-28 border-t border-rule bg-paper py-20 sm:py-28 lg:scroll-mt-32"
+      className="scroll-mt-28 border-t border-rule bg-bg py-20 sm:py-28 lg:scroll-mt-32"
       aria-labelledby="projects-heading"
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
         <motion.h2
           id="projects-heading"
           {...fadeUp}
-          className="max-w-2xl font-serif text-4xl font-medium tracking-tight text-ink sm:text-5xl"
+          className="max-w-2xl font-serif text-4xl font-medium tracking-tight text-text sm:text-5xl"
         >
           Selected work
         </motion.h2>
-        <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-muted">
-          Product, research tooling, and client sites: full stack and design-adjacent.
+        <p className="mt-4 max-w-xl text-base leading-relaxed text-text-muted">
+          Full-stack and research work.
         </p>
 
         <div className="mt-12 flex flex-col gap-6 sm:mt-14 sm:gap-8 lg:gap-10">

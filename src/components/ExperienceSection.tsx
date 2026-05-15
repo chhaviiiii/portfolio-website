@@ -15,7 +15,8 @@ const experiences = [
     role: "Software Engineer Intern",
     company: "Mastercard",
     date: "Jan 2026 to Present",
-    detail: "",
+    detail:
+      "Decision Intelligence on the Decision Management Platform software engineering team, building fraud detection ML models.",
   },
   {
     role: "Automation Engineer",
@@ -72,18 +73,18 @@ export default function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="scroll-mt-28 border-t border-rule bg-paper py-24 sm:py-32 lg:scroll-mt-32"
+      className="scroll-mt-28 border-t border-rule bg-bg py-24 sm:py-32 lg:scroll-mt-32"
       aria-labelledby="experience-heading"
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
         <motion.h2
           id="experience-heading"
           {...fadeUp}
-          className="font-serif text-4xl font-medium tracking-tight text-ink sm:text-5xl"
+          className="font-serif text-4xl font-medium tracking-tight text-text sm:text-5xl"
         >
           Experience
         </motion.h2>
-        <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-muted">
+        <p className="mt-4 max-w-xl text-base leading-relaxed text-text-muted">
           Roles across teaching and learning, research labs, cancer research, and industry.
         </p>
 
@@ -102,19 +103,19 @@ export default function ExperienceSection() {
               className="border-t border-rule first:border-t-0"
             >
               <div className="py-10">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
                   {exp.role}
                 </p>
                 <div className="mt-2 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <p className="min-w-0 font-serif text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+                  <p className="min-w-0 font-serif text-2xl font-semibold tracking-tight text-text sm:text-3xl">
                     {exp.company}
                   </p>
-                  <p className="shrink-0 text-sm tabular-nums text-ink-muted">
+                  <p className="shrink-0 text-sm tabular-nums text-text-muted">
                     {exp.date}
                   </p>
                 </div>
                 {exp.detail ? (
-                  <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-muted">
+                  <p className="mt-5 max-w-2xl text-base leading-relaxed text-text-muted">
                     {exp.detail}
                   </p>
                 ) : null}

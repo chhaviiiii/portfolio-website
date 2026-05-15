@@ -36,7 +36,7 @@ const social = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-rule bg-paper py-16 text-center">
+    <footer className="border-t border-rule bg-bg py-16 text-center">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-5 sm:px-8 lg:px-10">
         <ul className="flex items-center gap-10">
           {social.map((s) => (
@@ -46,14 +46,14 @@ export default function Footer() {
                 target={s.href.startsWith("mailto") ? undefined : "_blank"}
                 rel={s.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
                 aria-label={s.label}
-                className="text-ink transition-colors hover:text-accent"
+                className="text-text transition-colors hover:text-accent"
               >
                 {s.icon}
               </a>
             </li>
           ))}
         </ul>
-        <p className="text-sm text-ink-muted">
+        <p className="text-sm text-text-muted">
           Made with <span className="text-accent">♡</span> © Chhavi Nayyar
         </p>
       </div>

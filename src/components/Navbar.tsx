@@ -64,14 +64,14 @@ const Navbar = () => {
     <header
       className={`fixed inset-x-0 top-0 z-[100] transition-[padding,background-color,box-shadow] duration-300 ${
         scrolled
-          ? "border-b border-rule bg-paper/85 py-3 shadow-sm backdrop-blur-md"
-          : "border-b border-transparent bg-paper/70 py-5 backdrop-blur-sm"
+          ? "border-b border-rule bg-bg/85 py-3 shadow-sm backdrop-blur-md"
+          : "border-b border-transparent bg-bg/70 py-5 backdrop-blur-sm"
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 sm:px-8 lg:px-10">
         <a
           href="#hero"
-          className="font-serif text-lg tracking-tight text-ink transition-colors hover:text-accent sm:text-xl"
+          className="font-serif text-lg tracking-tight text-text transition-colors hover:text-accent sm:text-xl"
         >
           Chhavi Nayyar
         </a>
@@ -89,7 +89,7 @@ const Navbar = () => {
                     className={`text-sm font-medium tracking-wide transition-colors ${
                       !item.external && isActive(item.href)
                         ? "text-accent"
-                        : "text-ink-muted hover:text-ink"
+                        : "text-text-muted hover:text-text"
                     }`}
                   >
                     {item.label}
@@ -118,7 +118,7 @@ const Navbar = () => {
       {menuOpen && (
         <div
           id="mobile-nav"
-          className="border-t border-rule bg-paper px-5 py-4 lg:hidden"
+          className="border-t border-rule bg-bg px-5 py-4 lg:hidden"
         >
           <ul className="flex flex-col gap-3">
             {navLinks.map((item) => (
@@ -129,7 +129,7 @@ const Navbar = () => {
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
                   onClick={() => setMenuOpen(false)}
-                  className="block py-1 text-base font-medium text-ink hover:text-accent"
+                  className="block py-1 text-base font-medium text-text hover:text-accent"
                 >
                   {item.label}
                 </a>

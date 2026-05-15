@@ -30,7 +30,7 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${dmSans.variable}`}
     >
-      <body className="min-h-screen bg-paper font-sans text-ink antialiased">
+      <body className="min-h-screen bg-bg font-sans text-text antialiased">
         {children}
       </body>
     </html>

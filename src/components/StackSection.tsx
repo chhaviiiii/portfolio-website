@@ -61,25 +61,25 @@ export default function StackSection() {
   return (
     <section
       id="stack"
-      className="scroll-mt-28 border-t border-rule bg-paper py-24 sm:py-32 lg:scroll-mt-32"
+      className="scroll-mt-28 border-t border-rule bg-bg py-24 sm:py-32 lg:scroll-mt-32"
       aria-labelledby="stack-heading"
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
         <motion.h2
           id="stack-heading"
           {...fadeUp}
-          className="font-serif text-4xl font-medium tracking-tight text-ink sm:text-5xl"
+          className="font-serif text-4xl font-medium tracking-tight text-text sm:text-5xl"
         >
           Stack
         </motion.h2>
-        <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-muted">
+        <p className="mt-4 max-w-xl text-base leading-relaxed text-text-muted">
           Technologies and tools used in production and research.
         </p>
 
         <div className="mt-16 grid grid-cols-1 gap-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
           {categories.map((cat) => (
             <motion.div key={cat.label} {...fadeUp}>
-              <h3 className="border-b border-rule pb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">
+              <h3 className="border-b border-rule pb-3 text-xs font-semibold uppercase tracking-[0.18em] text-text-muted">
                 {cat.label}
               </h3>
               <ul className="mt-6 grid grid-cols-3 gap-x-1 gap-y-2 md:flex md:flex-col md:gap-0 md:space-y-1">
@@ -98,7 +98,7 @@ export default function StackSection() {
                           className="object-contain opacity-90 transition-opacity group-hover:opacity-100"
                         />
                       </span>
-                      <span className="line-clamp-2 text-[11px] font-medium leading-tight text-ink transition-colors group-hover:text-accent md:line-clamp-none md:text-sm">
+                      <span className="line-clamp-2 text-[11px] font-medium leading-tight text-text transition-colors group-hover:text-accent md:line-clamp-none md:text-sm">
                         {tech.name}
                       </span>
                     </button>

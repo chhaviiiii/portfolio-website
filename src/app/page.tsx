@@ -41,8 +41,10 @@ export default function Home() {
                 transition={{ ...heroEnter.transition, delay: 0.1 }}
                 className="mt-6 font-serif text-5xl font-normal leading-[1.05] tracking-tight text-text sm:mt-8 sm:text-6xl md:text-7xl"
               >
-                Hi, I&apos;m Chhavi{" "}
-                <span aria-hidden>🌙</span>
+                Hi, I&apos;m{" "}
+                <span className="whitespace-nowrap">
+                  Chhavi <span aria-hidden>🌙</span>
+                </span>
               </motion.h1>
               <motion.p
                 {...heroEnter}

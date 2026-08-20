@@ -109,6 +109,17 @@ export default function Home() {
                   Next.js and Framer, and ML engineering around qualitative and
                   eye-tracking datasets, including BC Cancer and UBC CS collaborations.
                 </p>
+                <p>
+                  Co-first author on my first peer-reviewed publication (2026), in{" "}
+                  <em>Implementation Science Communications</em> &mdash; see{" "}
+                  <a
+                    href="#publications"
+                    className="text-accent underline-offset-4 hover:underline"
+                  >
+                    Publications
+                  </a>
+                  .
+                </p>
               </div>
             </motion.div>
             <motion.div

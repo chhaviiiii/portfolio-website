@@ -15,11 +15,13 @@ const publication = {
     "Towards clinical implementation of artificial intelligence in cancer care",
   subtitle: "Concept mapping analysis of provincial workshop findings",
   authors:
-    "Chhavi Nayyar, Hong Hao Xu, Alan T Bates, Cristina Conati, Daniel Hilbers, Jonathan Avery, Srinivas Raman, Ahmad Fayaz-Bakhsh, John-Jose Nunez",
+    "Hong Hao Xu, Chhavi Nayyar, Daniel Hilbers, Alan T Bates, Cristina Conati, Jonathan Avery, Srinivas Raman, Ahmad Fayaz-Bakhsh, John-Jose Nunez",
+  journal: "Implementation Science Communications (2026)",
   abstract:
     "Workshop at the 2024 BC Cancer Summit (Vancouver): 48 participants produced 265 statements on AI in cancer care. Concept mapping identified two clusters (challenges and safeguards versus clinical benefits and efficiency), with higher importance and feasibility for the latter, offering a stakeholder-informed framework for implementation sequencing.",
-  doi: "https://doi.org/10.64898/2026.03.26.26349205",
-  doiLabel: "10.64898/2026.03.26.26349205",
+  doi: "https://doi.org/10.1186/s43058-026-01075-x",
+  doiLabel: "10.1186/s43058-026-01075-x",
+  published: "Published 14 August 2026",
 };
 
 export default function PublicationsSection() {
@@ -53,6 +55,10 @@ export default function PublicationsSection() {
             {publication.authors}
           </p>
 
+          <p className="mt-2 text-sm italic text-text-muted">
+            {publication.journal}
+          </p>
+
           <p className="mt-8 text-base leading-[1.75] text-text-muted sm:text-lg">
             {publication.abstract}
           </p>
@@ -69,8 +75,7 @@ export default function PublicationsSection() {
             </a>
           </p>
           <p className="mt-4 text-xs leading-relaxed text-text-muted">
-            Preprint: not yet certified by peer review. Findings should not guide
-            clinical practice until formally evaluated.
+            {publication.published}
           </p>
         </motion.article>
       </div>

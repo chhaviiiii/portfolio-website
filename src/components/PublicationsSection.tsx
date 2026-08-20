@@ -30,7 +30,7 @@ const publications: Publication[] = [
     subtitle: "Concept mapping analysis of provincial workshop findings",
     authors:
       "Chhavi Nayyar, Hong Hao Xu, Daniel Hilbers, Jonathan Avery, Srinivas Raman, Alan T Bates, Cristina Conati, Ahmad Fayaz-Bakhsh, John-Jose Nunez",
-    note: "Nayyar and Xu contributed equally (co-first authors)",
+    note: "Nayyar and Xu (co-first authors)",
     journal: "Implementation Science Communications (2026)",
     abstract:
       "Workshop at the 2024 BC Cancer Summit (Vancouver): 48 participants produced 265 statements on AI in cancer care. Concept mapping identified two clusters (challenges and safeguards versus clinical benefits and efficiency), with higher importance and feasibility for the latter, offering a stakeholder-informed framework for implementation sequencing.",

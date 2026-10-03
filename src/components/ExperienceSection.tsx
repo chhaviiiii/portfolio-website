@@ -12,11 +12,19 @@ const fadeUp = {
 
 const experiences = [
   {
+    role: "AI / XAI Developer",
+    company: "BC Cancer",
+    date: "Aug 2026 to Present",
+    current: true,
+    detail:
+      "Cancer Care Navigation Assistant, funded by the Canadian Cancer Society: a patient-partner portal with full-text search over a 951-page resource database, and explainable-AI methods so clinicians and patients can interpret model decisions.",
+  },
+  {
     role: "Software Engineer Intern",
     company: "Mastercard",
-    date: "May 2026 to Present",
+    date: "May 2026 to Aug 2026",
     detail:
-      "Decision Intelligence on the Decision Management Platform software engineering team, building fraud detection ML models.",
+      "Decision Intelligence on the Decision Management Platform: transaction-processing services, and production fraud-detection pipelines on Docker, Terraform, and AWS, with dashboards for the engineering team.",
   },
   {
     role: "Teaching Assistant",
@@ -44,14 +52,14 @@ const experiences = [
     company: "BC Cancer",
     date: "June 2025 to Dec 2025",
     detail:
-      "Concept mapping in implementation science: qualitative analysis, open-source MDS/clustering pipeline, and ML methods to clarify themes around AI in healthcare.",
+      "Concept mapping in implementation science: unsupervised models improved thematic pattern detection by about 40%, and an open-source MDS/clustering toolkit cut manual analysis time by about 50%.",
   },
   {
     role: "Machine Learning Researcher",
     company: "UBC Department of Computer Science",
     date: "April 2025 to Aug 2025",
     detail:
-      "Deep learning (VTNet) on eye-tracking data in TensorFlow/PyTorch; HPC with Slurm; linear-algebra-heavy experimentation and model evaluation.",
+      "Deep learning (VTNet) on eye-tracking data in TensorFlow/PyTorch, about a 25% gain in predictive accuracy. Slurm HPC sped training pipelines by about 30%.",
   },
   {
     role: "Design Director",
@@ -117,7 +125,12 @@ export default function ExperienceSection() {
                   <p className="min-w-0 font-serif text-2xl font-semibold tracking-tight text-text transition-colors duration-200 group-hover:text-accent sm:text-3xl">
                     {exp.company}
                   </p>
-                  <p className="shrink-0 text-sm tabular-nums text-text-muted transition-colors duration-200 group-hover:text-accent">
+                  <p className="flex shrink-0 items-center gap-2 text-sm tabular-nums text-text-muted transition-colors duration-200 group-hover:text-accent">
+                    {"current" in exp && exp.current ? (
+                      <span className="rounded-full border border-accent px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-accent">
+                        Now
+                      </span>
+                    ) : null}
                     {exp.date}
                   </p>
                 </div>

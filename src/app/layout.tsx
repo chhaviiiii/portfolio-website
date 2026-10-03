@@ -22,11 +22,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Chhavi Nayyar",
   description:
-    "Fullstack developer, UX designer, and ML engineer. Portfolio of work and experience.",
+    "Fullstack developer, UX designer, and ML engineer. Currently an AI/XAI developer at BC Cancer.",
   openGraph: {
     title: "Chhavi Nayyar",
     description:
-      "Fullstack developer, UX designer, and ML engineer. Portfolio of work and experience.",
+      "Fullstack developer, UX designer, and ML engineer. Currently an AI/XAI developer at BC Cancer.",
     url: siteUrl,
     siteName: "Chhavi Nayyar",
     locale: "en_US",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Chhavi Nayyar",
     description:
-      "Fullstack developer, UX designer, and ML engineer. Portfolio of work and experience.",
+      "Fullstack developer, UX designer, and ML engineer. Currently an AI/XAI developer at BC Cancer.",
   },
   other: {
     citation_title:

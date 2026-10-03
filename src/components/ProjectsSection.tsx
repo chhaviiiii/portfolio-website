@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const fadeUp = {
@@ -12,11 +13,21 @@ const fadeUp = {
 
 const projects = [
   {
-    title: "CourseInsights",
+    title: "Cancer Care Navigator",
     summary:
-      "Automates and visualizes course survey data into PDF reports with an accessible instructor dashboard.",
-    tools: ["Python", "Flask", "Pandas"],
-    link: "https://cpp-production-7774.up.railway.app/",
+      "Patient-partner portal for BC Cancer over a 951-page resource database: full-text and smart search, filterable columns, and a moderation queue for partner-submitted edits. Explainable-AI work sits alongside it so clinical decisions are easier to interpret.",
+    tools: ["Search", "XAI"],
+    note: "In use at BC Cancer",
+  },
+  {
+    title: "Your Search Box",
+    summary:
+      "Live search product that answers from a site's own documents and pages, with voice, image, and text input and a one-line embed.",
+    tools: ["TypeScript", "Next.js", "Node.js"],
+    link: "https://yoursearchbox.com/",
+    image: "/work/your-search-box.png",
+    imageAlt:
+      "Your Search Box homepage, with a cited answer and an audit trail of indexed sources",
   },
   {
     title: "BCPM Network",
@@ -24,13 +35,36 @@ const projects = [
       "Program site for the BC Proteomics and Metabolomics Network: research, events, and resources with an accessible layout.",
     tools: ["Next.js", "Tailwind", "Vercel"],
     link: "https://www.bcpm-network.ca/",
+    image: "/work/bcpm-network.png",
+    imageAlt:
+      "BCPM Network homepage with the proteomics and metabolomics heading over a lab photograph",
   },
   {
     title: "Concept Mapping Tool",
     summary:
-      "Open-source healthcare research tooling for MDS, clustering, and thematic maps from qualitative input.",
+      "Open-source healthcare research tooling for MDS, clustering, and thematic maps. Unsupervised models improved pattern detection by about 40% and cut manual analysis time by about 50%.",
     tools: ["Python", "FastAPI", "Plotly"],
     link: "https://github.com/chhaviiiii/concept_mapping",
+  },
+  {
+    title: "Webability",
+    summary:
+      "Accessibility platform with a Playwright and axe-core scanner, custom WCAG 2.1 and 2.2 checks, and generated fixes.",
+    tools: ["TypeScript", "Playwright", "WCAG"],
+    link: "https://www.webability.io/",
+    image: "/work/webability.png",
+    imageAlt:
+      "Webability homepage introducing an accessibility compliance tool with WCAG checks and AI fixes",
+  },
+  {
+    title: "CourseInsights",
+    summary:
+      "Automates course survey data into PDF reports and an instructor dashboard, cutting manual processing by about 70%.",
+    tools: ["Python", "Flask", "Pandas"],
+    link: "https://cpp.fly.dev",
+    image: "/work/courseinsights.png",
+    imageAlt:
+      "CourseInsights upload screen for a Qualtrics CSV, with instructor and course-section report options",
   },
   {
     title: "Autonomous Arduino Robot",
@@ -38,13 +72,6 @@ const projects = [
       "Embedded robot with wall follow, line follow, and proximity sensing using sensor fusion and PID control.",
     tools: ["Arduino", "C++"],
     link: "https://github.com/chhaviiiii/COGS300",
-  },
-  {
-    title: "Webability",
-    summary:
-      "Accessibility widget and compliance site emphasizing WCAG 2.1 patterns and keyboard-first interaction.",
-    tools: ["JavaScript", "WCAG"],
-    link: "https://www.webability.io/",
   },
   {
     title: "VR Recommendation System",
@@ -64,18 +91,33 @@ function ProjectCard({
   featured: boolean;
   indexLabel: string;
 }) {
-  return (
-    <motion.article
-      {...fadeUp}
-      className={`group flex h-full flex-col border border-rule bg-card shadow-sm transition-[border-color,box-shadow,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-accent hover:shadow-md focus-within:-translate-y-0.5 focus-within:border-accent focus-within:shadow-md ${
-        featured ? "p-6 sm:p-8" : "p-5 sm:p-6"
-      }`}
-    >
-      <a
-        href={project.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex min-h-0 flex-1 flex-col rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg dark:focus-visible:ring-offset-bg"
+  const body = (
+    <>
+      {"image" in project && project.image ? (
+        <div
+          className={`relative overflow-hidden bg-bg ${
+            featured
+              ? "order-first aspect-[16/10] md:order-last md:aspect-auto md:h-full md:min-h-[280px]"
+              : "aspect-[16/10]"
+          }`}
+        >
+          <Image
+            src={project.image}
+            alt={project.imageAlt}
+            fill
+            className="object-cover object-top"
+            sizes={
+              featured
+                ? "(max-width: 768px) 100vw, 50vw"
+                : "(max-width: 768px) 100vw, 40vw"
+            }
+          />
+        </div>
+      ) : null}
+      <div
+        className={`flex min-h-0 flex-1 flex-col ${
+          featured ? "p-6 sm:p-8" : "p-5 sm:p-6"
+        }`}
       >
         <span className="font-mono text-xs tabular-nums text-text-muted transition-colors group-hover:text-accent">
           {indexLabel}
@@ -106,13 +148,43 @@ function ProjectCard({
             </li>
           ))}
         </ul>
-        <span className="mt-5 inline-flex items-center gap-2 text-xs font-semibold text-accent transition-colors group-hover:text-accent-hover sm:text-sm">
-          Visit project
-          <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
-            →
+        {"link" in project && project.link ? (
+          <span className="mt-5 inline-flex items-center gap-2 text-xs font-semibold text-accent transition-colors group-hover:text-accent-hover sm:text-sm">
+            Visit project
+            <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
+              →
+            </span>
           </span>
-        </span>
-      </a>
+        ) : "note" in project && project.note ? (
+          <span className="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-text-muted">
+            {project.note}
+          </span>
+        ) : null}
+      </div>
+    </>
+  );
+
+  const frame = `flex min-h-0 flex-1 flex-col rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg dark:focus-visible:ring-offset-bg ${
+    "image" in project && project.image && featured ? "md:grid md:grid-cols-2" : ""
+  }`;
+
+  return (
+    <motion.article
+      {...fadeUp}
+      className="group flex h-full flex-col overflow-hidden border border-rule bg-card shadow-sm transition-[border-color,box-shadow,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-accent hover:shadow-md focus-within:-translate-y-0.5 focus-within:border-accent focus-within:shadow-md"
+    >
+      {"link" in project && project.link ? (
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={frame}
+        >
+          {body}
+        </a>
+      ) : (
+        <div className={frame}>{body}</div>
+      )}
     </motion.article>
   );
 }
@@ -121,6 +193,7 @@ const layoutPattern: ("featured" | "pair")[] = [
   "featured",
   "pair",
   "featured",
+  "pair",
   "pair",
 ];
 
@@ -144,7 +217,7 @@ export default function ProjectsSection() {
           Selected work
         </motion.h2>
         <p className="mt-4 max-w-xl text-base leading-relaxed text-text-muted">
-          Full-stack and research work.
+          Product, clinical, and research work.
         </p>
 
         <div className="mt-12 flex flex-col gap-6 sm:mt-14 sm:gap-8 lg:gap-10">

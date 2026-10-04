@@ -66,20 +66,6 @@ const projects = [
     imageAlt:
       "CourseInsights upload screen for a Qualtrics CSV, with instructor and course-section report options",
   },
-  {
-    title: "Autonomous Arduino Robot",
-    summary:
-      "Embedded robot with wall follow, line follow, and proximity sensing using sensor fusion and PID control.",
-    tools: ["Arduino", "C++"],
-    link: "https://github.com/chhaviiiii/COGS300",
-  },
-  {
-    title: "VR Recommendation System",
-    summary:
-      "Collaborative and content-based filtering for VR experiences using TensorFlow-backed workflows.",
-    tools: ["Python", "TensorFlow"],
-    link: "https://github.com/chhaviiiii/Virtual-Reality-Experience-Recommendation-System",
-  },
 ];
 
 function ProjectCard({
@@ -193,7 +179,6 @@ const layoutPattern: ("featured" | "pair")[] = [
   "featured",
   "pair",
   "featured",
-  "pair",
   "pair",
 ];
 

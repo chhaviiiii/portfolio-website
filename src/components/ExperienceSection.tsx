@@ -12,6 +12,22 @@ const fadeUp = {
 
 const experiences = [
   {
+    role: "Z Student Ambassador",
+    company: "IBM",
+    date: "Oct 2026 to Present",
+    current: true,
+    detail:
+      "Selected for the IBM Z Student Ambassador program, building a student community around mainframe and enterprise computing at UBC. Planning campus events and Z Xplore sign-ups to introduce students to enterprise systems and the mainframe talent gap.",
+  },
+  {
+    role: "Campus Ambassador",
+    company: "Adobe",
+    date: "Sept 2026 to Present",
+    current: true,
+    detail:
+      "Representing Adobe at UBC: designing Adobe Express assets (social graphics, a digital business card) for the campus community, and working with student organizations to plan Adobe Express workshops and design support for events.",
+  },
+  {
     role: "AI / XAI Developer",
     company: "BC Cancer",
     date: "Aug 2026 to Present",
